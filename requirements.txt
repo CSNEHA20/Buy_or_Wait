@@ -1,0 +1,24 @@
+﻿# Core data processing
+pandas>=2.1.0
+numpy>=1.26.0
+
+# HTTP and API
+anthropic>=0.34.0
+httpx>=0.27.0
+
+# Environment variable loading
+python-dotenv>=1.0.0
+
+# Image processing (for VLM pre-processing if needed)
+Pillow>=10.0.0
+
+# Testing
+pytest>=8.0.0
+pytest-cov>=4.1.0
+
+# Optional: FastAPI REST layer (bonus)
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+
+# Type hints support
+typing_extensions>=4.11.0
