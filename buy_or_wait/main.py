@@ -42,6 +42,7 @@ from buy_or_wait.data_loader import (
 from buy_or_wait.forecast import ForecastState
 from buy_or_wait.decision_engine import DecisionEngine
 from buy_or_wait.fx import FXConverter, FXConversionError
+from buy_or_wait.llm_client import LLMClient
 
 # Optional LLM-based evidence extractor (gracefully degraded if no API key)
 _evidence_available = bool(config.ANTHROPIC_API_KEY)
@@ -53,6 +54,15 @@ if _evidence_available:
         )
     except Exception:
         _evidence_available = False
+
+# LLM-based explanation generator (always import, gracefully degraded if no API key)
+try:
+    from buy_or_wait.explanation_generator import generate_explanation_from_decision
+except Exception:
+    generate_explanation_from_decision = None
+    _explanation_available = False
+else:
+    _explanation_available = bool(config.ANTHROPIC_API_KEY)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -279,6 +289,20 @@ def run_pipeline(dataset_dir: Optional[Path] = None) -> Path:
     evidence_message_facts: Dict[str, Any] = {}
     llm_calls = input_tokens = output_tokens = 0
 
+    # Initialize LLM client for explanation generation if available
+    llm_client = None
+    if _explanation_available:
+        try:
+            llm_client = LLMClient(
+                api_key=config.ANTHROPIC_API_KEY,
+                model=config.LLM_MODEL,
+                temperature=config.LLM_TEMPERATURE,
+                max_tokens=config.EXPLAIN_MAX_TOKENS,
+                enable_cache=True,
+            )
+        except Exception as e:
+            logger.warning(f"Failed to initialize LLM client for explanations: {e}")
+
     if _evidence_available:
         logger.info("Extracting image facts via LLM (untrusted evidence only)...")
         try:
@@ -320,6 +344,7 @@ def run_pipeline(dataset_dir: Optional[Path] = None) -> Path:
                 "earliest_date_for_full_payment": "",
                 "spending_changes_needed": "none",
                 "decision_explanation": f"No financial profile found for user {uid}.",
+                "requested_amount": request.requested_amount,
             })
             continue
 
@@ -342,6 +367,7 @@ def run_pipeline(dataset_dir: Optional[Path] = None) -> Path:
                 "earliest_date_for_full_payment": "",
                 "spending_changes_needed": "none",
                 "decision_explanation": f"Forecast build error: {e}",
+                "requested_amount": request.requested_amount,
             })
             continue
 
@@ -369,7 +395,24 @@ def run_pipeline(dataset_dir: Optional[Path] = None) -> Path:
                 "earliest_date_for_full_payment": "",
                 "spending_changes_needed": "none",
                 "decision_explanation": f"Decision engine error: {e}",
+                "requested_amount": request.requested_amount,
             }
+
+        # Generate explanation using LLM if available, otherwise keep deterministic fallback
+        if _explanation_available and llm_client and generate_explanation_from_decision:
+            try:
+                explanation = generate_explanation_from_decision(
+                    llm_client=llm_client,
+                    decision=result,
+                    current_balance=profile.current_available_balance,
+                    minimum_balance=profile.minimum_balance_to_keep,
+                    relevant_facts=f"Request amount: {request.requested_amount}, deadline: {request.desired_completion_date}",
+                    enable_cache=True,
+                )
+                result["decision_explanation"] = explanation
+            except Exception as e:
+                logger.warning(f"Request {req_id}: explanation generation failed: {e}, using fallback")
+                # Keep the deterministic explanation from decision engine
 
         rows.append(result)
         logger.debug(f"Request {req_id}: {result['affordability_status']} / {result['recommended_payment_method']}")

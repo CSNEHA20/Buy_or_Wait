@@ -368,6 +368,7 @@ class DecisionEngine:
                 "earliest_date_for_full_payment": earliest_date_str,
                 "spending_changes_needed": "none",
                 "decision_explanation": "No safe payment method found that keeps minimum balance protected.",
+                "requested_amount": float(self.req_amt),
             }
 
         # 4. Rank candidates deterministically
@@ -393,4 +394,5 @@ class DecisionEngine:
             "earliest_date_for_full_payment": earliest_date_str,
             "spending_changes_needed": changes_str,
             "decision_explanation": f"Recommended {best.method} via deterministic decision rules.",
+            "requested_amount": float(self.req_amt),
         }
