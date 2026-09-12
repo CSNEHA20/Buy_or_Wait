@@ -1,2 +1,3 @@
-﻿"""decision_engine.py - Candidate plan generation, safety filtering, and ranking."""
-# TODO (Prompt 5): implement decision engine
+from buy_or_wait.decision_engine import Candidate, DecisionEngine, format_amount
+
+__all__ = ["Candidate", "DecisionEngine", "format_amount"]
