@@ -2,9 +2,9 @@ import datetime
 import pytest
 from decimal import Decimal
 
-from code.data_loader import Dataset, FinancialProfile, FinancialEvent, ExchangeRate
-from code.fx import FXConverter
-from code.state_builder import StateBuilder
+from buy_or_wait.data_loader import Dataset, FinancialProfile, FinancialEvent, ExchangeRate
+from buy_or_wait.fx import FXConverter
+from buy_or_wait.state_builder import StateBuilder
 
 def test_state_builder_basic():
     # Setup mock data

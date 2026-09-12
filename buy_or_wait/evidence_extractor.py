@@ -14,7 +14,7 @@ from buy_or_wait.llm_client import LLMClient, LLMResponse
 
 logger = logging.getLogger(__name__)
 
-EVIDENCE_CACHE_DIR = Path(__file__).parent.parent / "cache" / "evidence"
+EVIDENCE_CACHE_DIR = Path(__file__).parent / "cache" / "evidence"
 EVIDENCE_CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
 IMAGE_EXTRACTION_PROMPT = (Path(__file__).parent / "prompts" / "image_extraction_prompt.md").read_text()

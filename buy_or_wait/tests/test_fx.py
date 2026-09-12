@@ -6,8 +6,8 @@ import datetime
 from decimal import Decimal
 import pytest
 
-from code.data_loader import ExchangeRate, load_dataset
-from code.fx import FXConverter, FXConversionError, convert_currency
+from buy_or_wait.data_loader import ExchangeRate, load_dataset
+from buy_or_wait.fx import FXConverter, FXConversionError, convert_currency
 
 
 @pytest.fixture

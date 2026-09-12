@@ -8,7 +8,7 @@ import hashlib
 from pathlib import Path
 import pytest
 
-from code.data_loader import (
+from buy_or_wait.data_loader import (
     load_dataset,
     DataLoaderError,
     Dataset,
@@ -16,7 +16,7 @@ from code.data_loader import (
     FinancialProfile,
     PurchaseRequest,
 )
-import code.config as config
+import buy_or_wait.config as config
 
 
 def get_dir_hash(directory: Path) -> str:

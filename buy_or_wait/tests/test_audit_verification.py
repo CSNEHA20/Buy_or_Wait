@@ -1,4 +1,4 @@
-﻿"""
+"""
 test_audit_verification.py - Automated verification tests for Step 1.
 Ensures repository structure, dataset integrity, and environment configuration.
 """
@@ -8,11 +8,12 @@ import sys
 import unittest
 from pathlib import Path
 
-# Ensure code directory is in sys.path
+# Ensure repo root is in sys.path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-sys.path.insert(0, str(REPO_ROOT / "code"))
+import sys
+sys.path.insert(0, str(REPO_ROOT))
 
-import config
+import buy_or_wait.config as config
 
 
 class TestStep1Audit(unittest.TestCase):

@@ -22,7 +22,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple, Any
 
-import code.config as config
+from . import config
 
 
 class DataLoaderError(Exception):
