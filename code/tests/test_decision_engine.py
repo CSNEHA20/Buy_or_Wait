@@ -1,2 +1,1 @@
-﻿"""Placeholder for decision engine unit tests."""
-# TODO (Prompt 5+): implement deterministic unit tests
+from buy_or_wait.tests.test_decision_engine import *
