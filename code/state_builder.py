@@ -3,8 +3,8 @@ from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Any
 from decimal import Decimal
 
-from code.data_loader import Dataset, FinancialEvent, FinancialProfile, PurchaseRequest
-from code.fx import FXConverter
+from buy_or_wait.data_loader import Dataset, FinancialEvent, FinancialProfile, PurchaseRequest
+from buy_or_wait.fx import FXConverter
 
 @dataclass
 class UserState:

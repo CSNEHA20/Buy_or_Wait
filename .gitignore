@@ -50,3 +50,17 @@ code.zip
 Lib/
 Scripts/
 
+# Debug and temporary files
+debug_*.py
+temp_*.txt
+test_*.txt
+audit_*.py
+run_test.py
+
+# Cache directories
+cache/
+
+# Package lock files
+uv.lock
+*.lock
+

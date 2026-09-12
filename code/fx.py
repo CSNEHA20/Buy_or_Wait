@@ -17,7 +17,7 @@ import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Union
 
-from code.data_loader import ExchangeRate, load_dataset
+from .data_loader import ExchangeRate, load_dataset
 
 
 class FXConversionError(ValueError):

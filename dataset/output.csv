@@ -1,251 +1,251 @@
 request_id,amount_safe_to_pay,affordability_status,recommended_payment_method,payment_plan,earliest_date_for_full_payment,spending_changes_needed,decision_explanation
-request_26,,,,,,,
-request_27,,,,,,,
-request_28,,,,,,,
-request_29,,,,,,,
-request_30,,,,,,,
-request_31,,,,,,,
-request_32,,,,,,,
-request_33,,,,,,,
-request_34,,,,,,,
-request_35,,,,,,,
-request_36,,,,,,,
-request_37,,,,,,,
-request_38,,,,,,,
-request_39,,,,,,,
-request_40,,,,,,,
-request_41,,,,,,,
-request_42,,,,,,,
-request_43,,,,,,,
-request_44,,,,,,,
-request_45,,,,,,,
-request_46,,,,,,,
-request_47,,,,,,,
-request_48,,,,,,,
-request_49,,,,,,,
-request_50,,,,,,,
-request_51,,,,,,,
-request_52,,,,,,,
-request_53,,,,,,,
-request_54,,,,,,,
-request_55,,,,,,,
-request_56,,,,,,,
-request_57,,,,,,,
-request_58,,,,,,,
-request_59,,,,,,,
-request_60,,,,,,,
-request_61,,,,,,,
-request_62,,,,,,,
-request_63,,,,,,,
-request_64,,,,,,,
-request_65,,,,,,,
-request_66,,,,,,,
-request_67,,,,,,,
-request_68,,,,,,,
-request_69,,,,,,,
-request_70,,,,,,,
-request_71,,,,,,,
-request_72,,,,,,,
-request_73,,,,,,,
-request_74,,,,,,,
-request_75,,,,,,,
-request_76,,,,,,,
-request_77,,,,,,,
-request_78,,,,,,,
-request_79,,,,,,,
-request_80,,,,,,,
-request_81,,,,,,,
-request_82,,,,,,,
-request_83,,,,,,,
-request_84,,,,,,,
-request_85,,,,,,,
-request_86,,,,,,,
-request_87,,,,,,,
-request_88,,,,,,,
-request_89,,,,,,,
-request_90,,,,,,,
-request_91,,,,,,,
-request_92,,,,,,,
-request_93,,,,,,,
-request_94,,,,,,,
-request_95,,,,,,,
-request_96,,,,,,,
-request_97,,,,,,,
-request_98,,,,,,,
-request_99,,,,,,,
-request_100,,,,,,,
-request_101,,,,,,,
-request_102,,,,,,,
-request_103,,,,,,,
-request_104,,,,,,,
-request_105,,,,,,,
-request_106,,,,,,,
-request_107,,,,,,,
-request_108,,,,,,,
-request_109,,,,,,,
-request_110,,,,,,,
-request_111,,,,,,,
-request_112,,,,,,,
-request_113,,,,,,,
-request_114,,,,,,,
-request_115,,,,,,,
-request_116,,,,,,,
-request_117,,,,,,,
-request_118,,,,,,,
-request_119,,,,,,,
-request_120,,,,,,,
-request_121,,,,,,,
-request_122,,,,,,,
-request_123,,,,,,,
-request_124,,,,,,,
-request_125,,,,,,,
-request_126,,,,,,,
-request_127,,,,,,,
-request_128,,,,,,,
-request_129,,,,,,,
-request_130,,,,,,,
-request_131,,,,,,,
-request_132,,,,,,,
-request_133,,,,,,,
-request_134,,,,,,,
-request_135,,,,,,,
-request_136,,,,,,,
-request_137,,,,,,,
-request_138,,,,,,,
-request_139,,,,,,,
-request_140,,,,,,,
-request_141,,,,,,,
-request_142,,,,,,,
-request_143,,,,,,,
-request_144,,,,,,,
-request_145,,,,,,,
-request_146,,,,,,,
-request_147,,,,,,,
-request_148,,,,,,,
-request_149,,,,,,,
-request_150,,,,,,,
-request_151,,,,,,,
-request_152,,,,,,,
-request_153,,,,,,,
-request_154,,,,,,,
-request_155,,,,,,,
-request_156,,,,,,,
-request_157,,,,,,,
-request_158,,,,,,,
-request_159,,,,,,,
-request_160,,,,,,,
-request_161,,,,,,,
-request_162,,,,,,,
-request_163,,,,,,,
-request_164,,,,,,,
-request_165,,,,,,,
-request_166,,,,,,,
-request_167,,,,,,,
-request_168,,,,,,,
-request_169,,,,,,,
-request_170,,,,,,,
-request_171,,,,,,,
-request_172,,,,,,,
-request_173,,,,,,,
-request_174,,,,,,,
-request_175,,,,,,,
-request_176,,,,,,,
-request_177,,,,,,,
-request_178,,,,,,,
-request_179,,,,,,,
-request_180,,,,,,,
-request_181,,,,,,,
-request_182,,,,,,,
-request_183,,,,,,,
-request_184,,,,,,,
-request_185,,,,,,,
-request_186,,,,,,,
-request_187,,,,,,,
-request_188,,,,,,,
-request_189,,,,,,,
-request_190,,,,,,,
-request_191,,,,,,,
-request_192,,,,,,,
-request_193,,,,,,,
-request_194,,,,,,,
-request_195,,,,,,,
-request_196,,,,,,,
-request_197,,,,,,,
-request_198,,,,,,,
-request_199,,,,,,,
-request_200,,,,,,,
-request_201,,,,,,,
-request_202,,,,,,,
-request_203,,,,,,,
-request_204,,,,,,,
-request_205,,,,,,,
-request_206,,,,,,,
-request_207,,,,,,,
-request_208,,,,,,,
-request_209,,,,,,,
-request_210,,,,,,,
-request_211,,,,,,,
-request_212,,,,,,,
-request_213,,,,,,,
-request_214,,,,,,,
-request_215,,,,,,,
-request_216,,,,,,,
-request_217,,,,,,,
-request_218,,,,,,,
-request_219,,,,,,,
-request_220,,,,,,,
-request_221,,,,,,,
-request_222,,,,,,,
-request_223,,,,,,,
-request_224,,,,,,,
-request_225,,,,,,,
-request_226,,,,,,,
-request_227,,,,,,,
-request_228,,,,,,,
-request_229,,,,,,,
-request_230,,,,,,,
-request_231,,,,,,,
-request_232,,,,,,,
-request_233,,,,,,,
-request_234,,,,,,,
-request_235,,,,,,,
-request_236,,,,,,,
-request_237,,,,,,,
-request_238,,,,,,,
-request_239,,,,,,,
-request_240,,,,,,,
-request_241,,,,,,,
-request_242,,,,,,,
-request_243,,,,,,,
-request_244,,,,,,,
-request_245,,,,,,,
-request_246,,,,,,,
-request_247,,,,,,,
-request_248,,,,,,,
-request_249,,,,,,,
-request_250,,,,,,,
-request_251,,,,,,,
-request_252,,,,,,,
-request_253,,,,,,,
-request_254,,,,,,,
-request_255,,,,,,,
-request_256,,,,,,,
-request_257,,,,,,,
-request_258,,,,,,,
-request_259,,,,,,,
-request_260,,,,,,,
-request_261,,,,,,,
-request_262,,,,,,,
-request_263,,,,,,,
-request_264,,,,,,,
-request_265,,,,,,,
-request_266,,,,,,,
-request_267,,,,,,,
-request_268,,,,,,,
-request_269,,,,,,,
-request_270,,,,,,,
-request_271,,,,,,,
-request_272,,,,,,,
-request_273,,,,,,,
-request_274,,,,,,,
-request_275,,,,,,,
+request_26,15656000.0,affordable_now,full_payment,2025-08-03:15656000.0,2025-08-03,none,Determined by strict algorithmic rules.
+request_27,6670.0,affordable_now,full_payment,2026-07-05:6670.0,2026-07-05,none,Determined by strict algorithmic rules.
+request_28,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_29,51524.0,affordable_now,full_payment,2025-11-04:51524.0,2025-11-04,none,Determined by strict algorithmic rules.
+request_30,268.74,affordable_with_plan,installments,2026-04-06:268.74|2026-05-06:268.74|2026-06-05:268.74,2026-06-05,none,Determined by strict algorithmic rules.
+request_31,0,affordable_later,wait,2024-09-15:18164000.0,2024-09-15,none,Determined by strict algorithmic rules.
+request_32,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_33,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_34,129400.0,affordable_now,full_payment,2024-12-04:129400.0,2024-12-04,none,Determined by strict algorithmic rules.
+request_35,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_36,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_37,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_38,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_39,0,affordable_later,wait,2026-04-15:208600.0,2026-04-15,none,Determined by strict algorithmic rules.
+request_40,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_41,0,affordable_later,wait,2025-11-15:38760000.0,2025-11-15,none,Determined by strict algorithmic rules.
+request_42,52100.0,affordable_now,full_payment,2026-01-05:52100.0,2026-01-05,none,Determined by strict algorithmic rules.
+request_43,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_44,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_45,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_46,49449.99,affordable_with_plan,partial_payment,2024-12-03:49449.99|2024-12-04:0.01,2024-12-04,none,Determined by strict algorithmic rules.
+request_47,38114000.0,affordable_now,full_payment,2025-05-05:38114000.0,2025-05-05,none,Determined by strict algorithmic rules.
+request_48,45700.0,affordable_now,full_payment,2026-07-25:45700.0,2026-07-25,none,Determined by strict algorithmic rules.
+request_49,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_50,43900.0,affordable_now,full_payment,2025-08-06:43900.0,2025-08-06,none,Determined by strict algorithmic rules.
+request_51,2191000.0,affordable_now,full_payment,2026-01-03:2191000.0,2026-01-03,none,Determined by strict algorithmic rules.
+request_52,28870.0,affordable_now,full_payment,2024-06-05:28870.0,2024-06-05,none,Determined by strict algorithmic rules.
+request_53,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_54,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_55,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_56,881.55,affordable_with_plan,partial_payment,2025-02-03:881.55|2025-02-04:0.01,2025-02-04,none,Determined by strict algorithmic rules.
+request_57,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_58,16226000.0,affordable_now,full_payment,2024-12-07:16226000.0,2024-12-07,none,Determined by strict algorithmic rules.
+request_59,0.0,affordable_with_plan,installments,2025-05-07:48741.33|2025-06-04:48741.33|2025-07-02:48741.33,2025-07-02,none,Determined by strict algorithmic rules.
+request_60,199.89,affordable_now,full_payment,2026-01-06:199.89,2026-01-06,none,Determined by strict algorithmic rules.
+request_61,0.0,affordable_with_plan,installments,2024-03-17:10074.83|2024-04-17:10074.83|2024-05-18:10074.83,2024-05-18,none,Determined by strict algorithmic rules.
+request_62,404.23,affordable_now,full_payment,2025-08-05:404.23,2025-08-05,none,Determined by strict algorithmic rules.
+request_63,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_64,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_65,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_66,22200.0,affordable_now,full_payment,2026-04-03:22200.0,2026-04-03,none,Determined by strict algorithmic rules.
+request_67,0,affordable_later,wait,2024-09-15:2094.0,2024-09-15,none,Determined by strict algorithmic rules.
+request_68,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_69,529.1,affordable_now,full_payment,2026-01-04:529.1,2026-01-04,none,Determined by strict algorithmic rules.
+request_70,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_71,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_72,11330.0,affordable_now,full_payment,2026-07-05:11330.0,2026-07-05,none,Determined by strict algorithmic rules.
+request_73,71400.0,affordable_now,full_payment,2023-01-20:71400.0,2023-01-20,none,Determined by strict algorithmic rules.
+request_74,5010.0,affordable_now,full_payment,2025-08-04:5010.0,2025-08-04,none,Determined by strict algorithmic rules.
+request_75,0.0,affordable_with_plan,installments,2026-04-09:9800.27|2026-05-09:9800.27|2026-06-08:9800.27,2026-06-08,none,Determined by strict algorithmic rules.
+request_76,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_77,60700.0,affordable_now,full_payment,2025-11-05:60700.0,2025-11-05,none,Determined by strict algorithmic rules.
+request_78,50200.0,affordable_now,full_payment,2025-10-02:50200.0,2025-10-02,none,Determined by strict algorithmic rules.
+request_79,1104.08,affordable_with_plan,partial_payment,2024-09-04:1104.08|2024-09-15:1047.52,2024-09-15,none,Determined by strict algorithmic rules.
+request_80,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_81,2076.0,affordable_now,full_payment,2026-07-03:2076.0,2026-07-03,none,Determined by strict algorithmic rules.
+request_82,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_83,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_84,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_85,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_86,46300.0,affordable_now,full_payment,2025-08-03:46300.0,2025-08-03,none,Determined by strict algorithmic rules.
+request_87,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_88,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_89,0.0,affordable_with_plan,installments,2025-11-18:4768746.67|2025-12-16:4768746.67|2026-01-13:4768746.67,2026-01-13,none,Determined by strict algorithmic rules.
+request_90,2560.0,affordable_now,full_payment,2026-07-06:2560.0,2026-07-06,none,Determined by strict algorithmic rules.
+request_91,1927.2,affordable_now,full_payment,2024-09-03:1927.2,2024-09-03,none,Determined by strict algorithmic rules.
+request_92,34034.0,affordable_now,full_payment,2025-02-05:34034.0,2025-02-05,none,Determined by strict algorithmic rules.
+request_93,1729.2,affordable_now,full_payment,2026-04-07:1729.2,2026-04-07,none,Determined by strict algorithmic rules.
+request_94,572.0,affordable_now,full_payment,2024-12-04:572.0,2024-12-04,none,Determined by strict algorithmic rules.
+request_95,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_96,0.0,affordable_with_plan,installments,2026-01-10:31269.33|2026-02-09:31269.33|2026-03-11:31269.33,2026-03-11,none,Determined by strict algorithmic rules.
+request_97,0.0,affordable_with_plan,installments,2024-03-19:8145.28|2024-04-19:8145.28|2024-05-20:8145.28,2024-05-20,none,Determined by strict algorithmic rules.
+request_98,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_99,18062.0,affordable_now,full_payment,2026-07-04:18062.0,2026-07-04,none,Determined by strict algorithmic rules.
+request_100,0.0,affordable_with_plan,installments,2024-06-13:12866.19|2024-07-14:12866.19|2024-08-14:12866.19,2024-08-14,none,Determined by strict algorithmic rules.
+request_101,143500.0,affordable_now,full_payment,2025-11-03:143500.0,2025-11-03,none,Determined by strict algorithmic rules.
+request_102,594.88,affordable_with_plan,installments,2026-04-05:594.88|2026-05-05:594.88|2026-06-04:594.88,2026-06-04,none,Determined by strict algorithmic rules.
+request_103,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_104,17204.0,affordable_now,full_payment,2025-02-04:17204.0,2025-02-04,none,Determined by strict algorithmic rules.
+request_105,53500.0,affordable_now,full_payment,2026-06-08:53500.0,2026-06-08,none,Determined by strict algorithmic rules.
+request_106,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_107,0.0,affordable_with_plan,installments,2025-05-08:878.59|2025-06-05:878.59|2025-07-03:878.59,2025-07-03,none,Determined by strict algorithmic rules.
+request_108,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_109,0.0,affordable_with_plan,installments,2024-03-18:645.98|2024-04-18:645.98|2024-05-19:645.98,2024-05-19,none,Determined by strict algorithmic rules.
+request_110,7748.69,affordable_with_plan,installments,2025-08-06:7748.69|2025-09-03:7748.69|2025-10-01:7748.69,2025-10-01,none,Determined by strict algorithmic rules.
+request_111,16625000.0,affordable_now,full_payment,2026-04-03:16625000.0,2026-04-03,none,Determined by strict algorithmic rules.
+request_112,271.7,affordable_now,full_payment,2024-06-05:271.7,2024-06-05,none,Determined by strict algorithmic rules.
+request_113,36500.0,affordable_now,full_payment,2026-09-04:36500.0,2026-09-04,none,Determined by strict algorithmic rules.
+request_114,65300.0,affordable_now,full_payment,2026-01-04:65300.0,2026-01-04,none,Determined by strict algorithmic rules.
+request_115,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_116,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_117,880.0,affordable_now,full_payment,2026-07-05:880.0,2026-07-05,none,Determined by strict algorithmic rules.
+request_118,255.87,affordable_with_plan,installments,2024-12-07:255.87|2025-01-07:255.87|2025-02-07:255.87,2025-02-07,none,Determined by strict algorithmic rules.
+request_119,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_120,7714000.0,affordable_now,full_payment,2026-04-06:7714000.0,2026-04-06,none,Determined by strict algorithmic rules.
+request_121,633.6,affordable_now,full_payment,2024-03-03:633.6,2024-03-03,none,Determined by strict algorithmic rules.
+request_122,7126773.33,affordable_with_plan,installments,2025-08-05:7126773.33|2025-09-02:7126773.33|2025-09-30:7126773.33,2025-09-30,none,Determined by strict algorithmic rules.
+request_123,4076000.0,affordable_now,full_payment,2026-01-07:4076000.0,2026-01-07,none,Determined by strict algorithmic rules.
+request_124,0.0,affordable_with_plan,installments,2024-06-11:1076.12|2024-07-12:1076.12|2024-08-12:1076.12,2024-08-12,none,Determined by strict algorithmic rules.
+request_125,6468.0,affordable_now,full_payment,2025-11-06:6468.0,2025-11-06,none,Determined by strict algorithmic rules.
+request_126,159600.0,affordable_now,full_payment,2026-07-03:159600.0,2026-07-03,none,Determined by strict algorithmic rules.
+request_127,23980.0,affordable_now,full_payment,2024-09-05:23980.0,2024-09-05,none,Determined by strict algorithmic rules.
+request_128,25168.0,affordable_now,full_payment,2025-02-07:25168.0,2025-02-07,none,Determined by strict algorithmic rules.
+request_129,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_130,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_131,0.0,affordable_with_plan,installments,2025-05-06:643.14|2025-06-03:643.14|2025-07-01:643.14,2025-07-01,none,Determined by strict algorithmic rules.
+request_132,379.86,affordable_now,full_payment,2026-01-05:379.86,2026-01-05,none,Determined by strict algorithmic rules.
+request_133,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_134,0,affordable_later,wait,2025-08-15:21831000.0,2025-08-15,none,Determined by strict algorithmic rules.
+request_135,304.8,affordable_now,full_payment,2026-07-06:304.8,2026-07-06,none,Determined by strict algorithmic rules.
+request_136,560.4,affordable_now,full_payment,2024-06-03:560.4,2024-06-03,none,Determined by strict algorithmic rules.
+request_137,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_138,1256.93,affordable_with_plan,partial_payment,2026-04-07:1256.93|2026-04-08:0.01,2026-04-08,none,Determined by strict algorithmic rules.
+request_139,0.0,affordable_with_plan,installments,2024-09-07:802.88|2024-10-08:802.88|2024-11-08:802.88,2024-11-08,none,Determined by strict algorithmic rules.
+request_140,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_141,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_142,1263.6,affordable_now,full_payment,2024-12-05:1263.6,2024-12-05,none,Determined by strict algorithmic rules.
+request_143,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_144,233.34,affordable_now,full_payment,2026-07-04:233.34,2026-07-04,none,Determined by strict algorithmic rules.
+request_145,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_146,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_147,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_148,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_149,0.0,affordable_with_plan,installments,2025-11-18:12706.03|2025-12-16:12706.03|2026-01-13:12706.03,2026-01-13,none,Determined by strict algorithmic rules.
+request_150,171.98,affordable_with_plan,installments,2026-01-06:171.98|2026-02-05:171.98|2026-03-07:171.98,2026-03-07,none,Determined by strict algorithmic rules.
+request_151,26999000.0,affordable_now,full_payment,2024-09-03:26999000.0,2024-09-03,none,Determined by strict algorithmic rules.
+request_152,0.0,affordable_with_plan,installments,2025-02-12:4812.43|2025-03-12:4812.43|2025-04-09:4812.43,2025-04-09,none,Determined by strict algorithmic rules.
+request_153,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_154,563.61,affordable_with_plan,installments,2024-12-04:563.61|2025-01-04:563.61|2025-02-04:563.61,2025-02-04,none,Determined by strict algorithmic rules.
+request_155,112500.0,affordable_now,full_payment,2025-05-06:112500.0,2025-05-06,none,Determined by strict algorithmic rules.
+request_156,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_157,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_158,84101.33,affordable_with_plan,installments,2025-08-07:84101.33|2025-09-04:84101.33|2025-10-02:84101.33,2025-10-02,none,Determined by strict algorithmic rules.
+request_159,13398.0,affordable_now,full_payment,2026-01-04:13398.0,2026-01-04,none,Determined by strict algorithmic rules.
+request_160,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_161,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_162,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_163,0.0,affordable_with_plan,installments,2024-09-10:6692053.33|2024-10-11:6692053.33|2024-11-11:6692053.33,2024-11-11,none,Determined by strict algorithmic rules.
+request_164,0.0,affordable_with_plan,installments,2025-02-11:9366240.0|2025-03-11:9366240.0|2025-04-08:9366240.0,2025-04-08,none,Determined by strict algorithmic rules.
+request_165,80600.0,affordable_now,full_payment,2026-04-06:80600.0,2026-04-06,none,Determined by strict algorithmic rules.
+request_166,1007.97,affordable_with_plan,installments,2024-12-03:1007.97|2025-01-03:1007.97|2025-02-03:1007.97,2025-02-03,none,Determined by strict algorithmic rules.
+request_167,43802.0,affordable_now,full_payment,2025-05-05:43802.0,2025-05-05,none,Determined by strict algorithmic rules.
+request_168,49379.99,affordable_with_plan,partial_payment,2026-01-07:49379.99|2026-01-08:0.01,2026-01-08,none,Determined by strict algorithmic rules.
+request_169,41976.0,affordable_now,full_payment,2024-03-04:41976.0,2024-03-04,none,Determined by strict algorithmic rules.
+request_170,12804480.0,affordable_with_plan,installments,2025-08-06:12804480.0|2025-09-03:12804480.0|2025-10-01:12804480.0,2025-10-01,none,Determined by strict algorithmic rules.
+request_171,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_172,10199.99,affordable_with_plan,partial_payment,2024-06-05:10199.99|2024-06-06:0.01,2024-06-06,none,Determined by strict algorithmic rules.
+request_173,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_174,397.35,affordable_with_plan,installments,2026-04-04:397.35|2026-05-04:397.35|2026-06-03:397.35,2026-06-03,none,Determined by strict algorithmic rules.
+request_175,2346.3,affordable_now,full_payment,2024-09-06:2346.3,2024-09-06,none,Determined by strict algorithmic rules.
+request_176,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_177,1017.6,affordable_now,full_payment,2026-01-05:1017.6,2026-01-05,none,Determined by strict algorithmic rules.
+request_178,1018.54,affordable_with_plan,installments,2024-12-07:1018.54|2025-01-07:1018.54|2025-02-07:1018.54,2025-02-07,none,Determined by strict algorithmic rules.
+request_179,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_180,66500.0,affordable_now,full_payment,2026-07-06:66500.0,2026-07-06,none,Determined by strict algorithmic rules.
+request_181,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_182,65714.0,affordable_now,full_payment,2025-08-05:65714.0,2025-08-05,none,Determined by strict algorithmic rules.
+request_183,0.0,affordable_with_plan,installments,2026-04-10:9313546.67|2026-05-10:9313546.67|2026-06-09:9313546.67,2026-06-09,none,Determined by strict algorithmic rules.
+request_184,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_185,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_186,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_187,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_188,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_189,488.4,affordable_now,full_payment,2026-07-04:488.4,2026-07-04,none,Determined by strict algorithmic rules.
+request_190,0,affordable_later,wait,2024-12-15:2557.5,2024-12-15,none,Determined by strict algorithmic rules.
+request_191,664.4,affordable_now,full_payment,2025-05-03:664.4,2025-05-03,none,Determined by strict algorithmic rules.
+request_192,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_193,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_194,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_195,0.0,affordable_with_plan,installments,2026-01-09:405.74|2026-02-08:405.74|2026-03-10:405.74,2026-03-10,none,Determined by strict algorithmic rules.
+request_196,762.3,affordable_now,full_payment,2024-06-03:762.3,2024-06-03,none,Determined by strict algorithmic rules.
+request_197,50938999.99,affordable_with_plan,partial_payment,2025-11-05:50938999.99|2025-11-06:0.01,2025-11-06,none,Determined by strict algorithmic rules.
+request_198,185800.0,affordable_now,full_payment,2026-07-07:185800.0,2026-07-07,none,Determined by strict algorithmic rules.
+request_199,0.0,affordable_with_plan,installments,2024-09-07:8206986.67|2024-10-08:8206986.67|2024-11-08:8206986.67,2024-11-08,none,Determined by strict algorithmic rules.
+request_200,21717000.0,affordable_now,full_payment,2025-02-06:21717000.0,2025-02-06,none,Determined by strict algorithmic rules.
+request_201,23997000.0,affordable_now,full_payment,2026-04-03:23997000.0,2026-04-03,none,Determined by strict algorithmic rules.
+request_202,123900.0,affordable_now,full_payment,2024-12-05:123900.0,2024-12-05,none,Determined by strict algorithmic rules.
+request_203,0.0,affordable_with_plan,installments,2025-05-10:499.93|2025-06-07:499.93|2025-07-05:499.93,2025-07-05,none,Determined by strict algorithmic rules.
+request_204,588.74,affordable_now,full_payment,2026-01-04:588.74,2026-01-04,none,Determined by strict algorithmic rules.
+request_205,10621000.0,affordable_now,full_payment,2024-03-06:10621000.0,2024-03-06,none,Determined by strict algorithmic rules.
+request_206,1404.69,affordable_with_plan,partial_payment,2025-08-03:1404.69|2025-08-04:0.01,2025-08-04,none,Determined by strict algorithmic rules.
+request_207,11830.0,affordable_now,full_payment,2026-07-05:11830.0,2026-07-05,none,Determined by strict algorithmic rules.
+request_208,4413000.0,affordable_now,full_payment,2024-06-07:4413000.0,2024-06-07,none,Determined by strict algorithmic rules.
+request_209,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_210,1360.01,affordable_with_plan,partial_payment,2026-04-06:1360.01|2026-04-07:0.01,2026-04-07,none,Determined by strict algorithmic rules.
+request_211,0,affordable_later,wait,2024-09-15:1788.6,2024-09-15,none,Determined by strict algorithmic rules.
+request_212,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_213,0.0,affordable_with_plan,installments,2026-01-21:1165.63|2026-02-20:1165.63|2026-03-22:1165.63,2026-03-22,none,Determined by strict algorithmic rules.
+request_214,69749.99,affordable_with_plan,partial_payment,2024-12-04:69749.99|2024-12-05:0.01,2024-12-05,none,Determined by strict algorithmic rules.
+request_215,0.0,affordable_with_plan,installments,2025-05-09:10395.15|2025-06-06:10395.15|2025-07-04:10395.15,2025-07-04,none,Determined by strict algorithmic rules.
+request_216,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_217,0.0,affordable_with_plan,installments,2024-03-19:12889.07|2024-04-19:12889.07|2024-05-20:12889.07,2024-05-20,none,Determined by strict algorithmic rules.
+request_218,21195893.33,affordable_with_plan,installments,2025-08-07:21195893.33|2025-09-04:21195893.33|2025-10-02:21195893.33,2025-10-02,none,Determined by strict algorithmic rules.
+request_219,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_220,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_221,109800.0,affordable_now,full_payment,2025-11-03:109800.0,2025-11-03,none,Determined by strict algorithmic rules.
+request_222,34078.0,affordable_now,full_payment,2026-01-05:34078.0,2026-01-05,none,Determined by strict algorithmic rules.
+request_223,898.7,affordable_now,full_payment,2024-09-07:898.7,2024-09-07,none,Determined by strict algorithmic rules.
+request_224,10326999.99,affordable_with_plan,partial_payment,2025-02-04:10326999.99|2025-02-05:0.01,2025-02-05,none,Determined by strict algorithmic rules.
+request_225,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_226,157000.0,affordable_now,full_payment,2024-12-03:157000.0,2024-12-03,none,Determined by strict algorithmic rules.
+request_227,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_228,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_229,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_230,3537.6,affordable_now,full_payment,2025-08-06:3537.6,2025-08-06,none,Determined by strict algorithmic rules.
+request_231,0.0,affordable_with_plan,installments,2026-01-06:12378.08|2026-02-05:12378.08|2026-03-07:12378.08,2026-03-07,none,Determined by strict algorithmic rules.
+request_232,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_233,6240999.99,affordable_with_plan,partial_payment,2025-11-07:6240999.99|2025-11-08:0.01,2025-11-08,none,Determined by strict algorithmic rules.
+request_234,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_235,967.2,affordable_now,full_payment,2024-09-06:967.2,2024-09-06,none,Determined by strict algorithmic rules.
+request_236,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_237,23826000.0,affordable_now,full_payment,2026-04-05:23826000.0,2026-04-05,none,Determined by strict algorithmic rules.
+request_238,230.05,affordable_with_plan,installments,2024-12-07:230.05|2025-01-07:230.05|2025-02-07:230.05,2025-02-07,none,Determined by strict algorithmic rules.
+request_239,642.0,affordable_now,full_payment,2025-05-04:642.0,2025-05-04,none,Determined by strict algorithmic rules.
+request_240,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_241,0.0,affordable_with_plan,installments,2024-03-17:7298026.67|2024-04-17:7298026.67|2024-05-18:7298026.67,2024-05-18,none,Determined by strict algorithmic rules.
+request_242,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_243,17468.0,affordable_now,full_payment,2026-07-07:17468.0,2026-07-07,none,Determined by strict algorithmic rules.
+request_244,49918.0,affordable_now,full_payment,2024-06-04:49918.0,2024-06-04,none,Determined by strict algorithmic rules.
+request_245,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_246,22216.48,affordable_with_plan,installments,2026-04-03:22216.48|2026-05-03:22216.48|2026-06-02:22216.48,2026-06-02,none,Determined by strict algorithmic rules.
+request_247,1059.3,affordable_now,full_payment,2024-09-05:1059.3,2024-09-05,none,Determined by strict algorithmic rules.
+request_248,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_249,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_250,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_251,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_252,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_253,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_254,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_255,3345000.0,affordable_now,full_payment,2026-04-06:3345000.0,2026-04-06,none,Determined by strict algorithmic rules.
+request_256,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_257,0,affordable_later,wait,2025-11-15:1352.4,2025-11-15,none,Determined by strict algorithmic rules.
+request_258,1113.6,affordable_now,full_payment,2026-01-07:1113.6,2026-01-07,none,Determined by strict algorithmic rules.
+request_259,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_260,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_261,1830.4,affordable_now,full_payment,2026-07-03:1830.4,2026-07-03,none,Determined by strict algorithmic rules.
+request_262,9236000.0,affordable_now,full_payment,2024-12-05:9236000.0,2024-12-05,none,Determined by strict algorithmic rules.
+request_263,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_264,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_265,45970.0,affordable_now,full_payment,2024-03-06:45970.0,2024-03-06,none,Determined by strict algorithmic rules.
+request_266,324.13,affordable_with_plan,installments,2025-08-03:324.13|2025-08-31:324.13|2025-09-28:324.13,2025-09-28,none,Determined by strict algorithmic rules.
+request_267,0.0,affordable_with_plan,installments,2026-01-08:667.33|2026-02-07:667.33|2026-03-09:667.33,2026-03-09,none,Determined by strict algorithmic rules.
+request_268,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_269,15490.0,affordable_now,full_payment,2025-11-04:15490.0,2025-11-04,none,Determined by strict algorithmic rules.
+request_270,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_271,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_272,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_273,0,not_affordable,not_recommended,none,,none,No safe payment method found.
+request_274,940.75,affordable_with_plan,installments,2024-12-04:940.75|2025-01-04:940.75|2025-02-04:940.75,2025-02-04,none,Determined by strict algorithmic rules.
+request_275,15884000.0,affordable_now,full_payment,2025-05-06:15884000.0,2025-05-06,none,Determined by strict algorithmic rules.

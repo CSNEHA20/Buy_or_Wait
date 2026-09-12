@@ -24,7 +24,7 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 from dataclasses import dataclass
 
-from code.llm_client import LLMClient, LLMResponse
+from buy_or_wait.llm_client import LLMClient, LLMResponse
 
 logger = logging.getLogger(__name__)
 

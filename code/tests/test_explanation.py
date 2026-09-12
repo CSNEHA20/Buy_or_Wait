@@ -84,6 +84,10 @@ class TestValidExplanation:
         assert explanation is not None
         assert len(explanation) > 0
         assert "50000" in explanation or "balance" in explanation.lower()
+        assert mock_llm_client.complete.called
+
+        # Reset for other tests
+        mock_llm_client.complete.reset_mock()
 
 
 class TestAPIFailure:
@@ -97,6 +101,11 @@ class TestAPIFailure:
         assert explanation is not None
         assert len(explanation) > 0
         assert "deterministic" in explanation.lower() or "balance" in explanation.lower()
+        assert mock_llm_client.complete.called
+
+        # Reset for other tests
+        mock_llm_client.complete.reset_mock()
+        mock_llm_client.complete.side_effect = None
 
 
 class TestTimeout:
@@ -110,6 +119,10 @@ class TestTimeout:
         assert explanation is not None
         assert len(explanation) > 0
         assert "deterministic" in explanation.lower() or "balance" in explanation.lower()
+
+        # Reset for other tests
+        mock_llm_client.complete.reset_mock()
+        mock_llm_client.complete.side_effect = None
 
 
 class TestMalformedResponse:
@@ -134,6 +147,9 @@ class TestMalformedResponse:
         assert len(explanation) > 0
         assert "deterministic" in explanation.lower() or "balance" in explanation.lower()
 
+        # Reset for other tests
+        mock_llm_client.complete.reset_mock()
+
 
 class TestEmptyResponse:
     """Test 5: empty response handling."""
@@ -156,6 +172,9 @@ class TestEmptyResponse:
         assert explanation is not None
         assert len(explanation) > 0
         assert explanation.strip() != ""
+
+        # Reset for other tests
+        mock_llm_client.complete.reset_mock()
 
 
 class TestUnsupportedClaim:
@@ -180,6 +199,9 @@ class TestUnsupportedClaim:
         assert len(explanation) > 0
         # Should use fallback since "instead" is a forbidden pattern
         assert "deterministic" in explanation.lower() or "balance" in explanation.lower()
+
+        # Reset for other tests
+        mock_llm_client.complete.reset_mock()
 
 
 class TestPromptInjection:
@@ -219,6 +241,9 @@ class TestPromptInjection:
         assert explanation is not None
         assert len(explanation) > 0
 
+        # Reset for other tests
+        mock_llm_client.complete.reset_mock()
+
 
 class TestDecisionMutation:
     """Test 8: explanation cannot mutate decision."""
@@ -245,6 +270,9 @@ class TestDecisionMutation:
         assert sample_request.recommended_payment_method == original_method
         assert sample_request.affordability_status == original_status
         assert explanation is not None
+
+        # Reset for other tests
+        mock_llm_client.complete.reset_mock()
 
 
 class TestFallbackNonEmpty:
@@ -291,6 +319,9 @@ class TestNoAPIKeyInOutput:
         assert "api_key" not in log_text.lower()
         assert "sk-" not in explanation  # No API key in explanation
 
+        # Reset for other tests
+        mock_llm_client.complete.reset_mock()
+
 
 class TestCachedExplanation:
     """Test 11: repeated cached explanation."""
@@ -310,11 +341,16 @@ class TestCachedExplanation:
 
         # First call - should hit API
         explanation1 = generate_explanation(mock_llm_client, sample_request, enable_cache=True)
+        assert mock_llm_client.complete.call_count == 1
 
         # Second call - should hit cache
         explanation2 = generate_explanation(mock_llm_client, sample_request, enable_cache=True)
+        assert mock_llm_client.complete.call_count == 1  # No additional calls
 
         assert explanation1 == explanation2
+
+        # Reset for other tests
+        mock_llm_client.complete.reset_mock()
 
 
 class TestActualFactsReference:
@@ -354,6 +390,9 @@ class TestActualFactsReference:
         assert len(explanation) > 0
         # Should contain actual numbers from the decision
         assert "50000" in explanation or "45000" in explanation or "5000" in explanation
+
+        # Reset for other tests
+        mock_llm_client.complete.reset_mock()
 
 
 class TestNoLLMClient:
@@ -404,6 +443,9 @@ class TestConvenienceWrapper:
 
         assert explanation is not None
         assert len(explanation) > 0
+
+        # Reset for other tests
+        mock_llm_client.complete.reset_mock()
 
 
 class TestValidation:
