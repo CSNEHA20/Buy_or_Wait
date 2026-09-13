@@ -13,8 +13,10 @@ repository contains the implemented decision engine, tests, evaluation reports,
 and generated `output.csv`. The official repository's README is not copied into
 this solution because it documents a different repository.
 
-This root `README.md` is the canonical README for this project. There is no
-second package README.
+This root `README.md` is the canonical project README. A shorter scoped
+implementation README is intentionally provided at [`code/README.md`](code/README.md)
+for readers opening the code folder; it points back here for the complete
+architecture and submission documentation.
 
 ## Codebase tree
 
