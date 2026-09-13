@@ -20,14 +20,27 @@ Pipeline stages:
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+# ``python3 code/main.py`` executes this file outside a package.  Register the
+# code directory as the buy_or_wait package before importing sibling modules.
+if __package__ in (None, ""):
+    import types
+    _CODE_DIR = Path(__file__).resolve().parent
+    if str(_CODE_DIR) not in sys.path:
+        sys.path.insert(0, str(_CODE_DIR))
+    if "buy_or_wait" not in sys.modules:
+        _package = types.ModuleType("buy_or_wait")
+        _package.__path__ = [str(_CODE_DIR)]
+        sys.modules["buy_or_wait"] = _package
+
 import csv
 import json
 import logging
-import sys
 import time
 from datetime import date, datetime
 from decimal import Decimal
-from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from buy_or_wait import config
@@ -43,6 +56,9 @@ from buy_or_wait.forecast import ForecastState
 from buy_or_wait.decision_engine import DecisionEngine
 from buy_or_wait.fx import FXConverter, FXConversionError
 from buy_or_wait.llm_client import LLMClient
+from buy_or_wait.state_builder import StateBuilder
+from buy_or_wait.verifier import verify_decision
+from buy_or_wait.writer import write_output
 
 # Optional LLM-based evidence extractor (gracefully degraded if no API key)
 _evidence_available = bool(config.ANTHROPIC_API_KEY)
@@ -191,15 +207,8 @@ def _get_future_events(
 
 
 def _write_output(rows: List[Dict], output_path: Path) -> None:
-    """Write rows to output.csv with the contractual column order."""
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=config.OUTPUT_COLUMNS)
-        writer.writeheader()
-        for row in rows:
-            # Ensure all required columns present (fill blanks if needed)
-            out_row = {col: row.get(col, "") for col in config.OUTPUT_COLUMNS}
-            writer.writerow(out_row)
+    """Validate and atomically write output.csv with the contractual schema."""
+    write_output(rows, output_path, expected_row_count=len(rows))
     logger.info(f"Output written to {output_path} ({len(rows)} rows)")
 
 
@@ -283,6 +292,7 @@ def run_pipeline(dataset_dir: Optional[Path] = None) -> Path:
 
     # 3. Build FX converter
     fx = FXConverter(exchange_rates=dataset.exchange_rates)
+    state_builder = StateBuilder(dataset, fx)
 
     # 4. Optional: extract evidence from images & messages
     evidence_image_facts: Dict[str, Any] = {}
@@ -348,6 +358,13 @@ def run_pipeline(dataset_dir: Optional[Path] = None) -> Path:
             })
             continue
 
+        # Build the normalized user state before the forecast stage.  The
+        # ForecastState remains the authoritative simulation representation.
+        try:
+            state_builder.build_state(uid, request.request_date)
+        except Exception as exc:
+            logger.warning("Request %s: state builder could not normalize state: %s", req_id, exc)
+
         # Get payment options for this request
         payment_options = [
             opt for opt in dataset.payment_options if opt.request_id == req_id
@@ -384,6 +401,9 @@ def run_pipeline(dataset_dir: Optional[Path] = None) -> Path:
                 future_events=future_events,
             )
             result = engine.run()
+            verification = verify_decision(result, request=request)
+            if not verification:
+                raise ValueError("; ".join(verification.errors))
         except Exception as e:
             logger.error(f"Request {req_id}: decision engine failed: {e}")
             result = {

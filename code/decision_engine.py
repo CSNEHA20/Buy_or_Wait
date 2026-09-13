@@ -257,51 +257,40 @@ class DecisionEngine:
 
             # Option C: Partial Payment (exactly two payments)
             if "partial_payment" in considered_methods and self.request.allows_partial_payment:
-                low = Decimal("0")
-                high = self.req_amt
-                eps = Decimal("0.01")
-                best_first = Decimal("0")
-                while high - low > eps:
-                    mid = (low + high) / Decimal("2")
-                    payments = [(self.req_date, mid)]
+                # The contract defines the first partial payment as the
+                # baseline amount_safe_to_pay, not the amount made safe by
+                # optional spending changes.  Reuse the same rounded value
+                # that is emitted in the output row.
+                best_first = safe_amt_dec
+                second_date = earliest_full_date
+                if (
+                    Decimal("0") < best_first < self.req_amt
+                    and second_date is not None
+                    and (self.deadline is None or second_date <= self.deadline)
+                ):
+                    rem = self.req_amt - best_first
+                    payments = [(self.req_date, best_first), (second_date, rem)]
                     overlay = self._get_overlay(payments, changes)
                     if self._is_safe_with_overlay(overlay):
-                        best_first = mid
-                        low = mid
-                    else:
-                        high = mid
-                best_first = best_first.quantize(Decimal("0.01"))
-
-                if Decimal("0") < best_first < self.req_amt:
-                    rem = self.req_amt - best_first
-                    max_wait_days = 90
-                    for d_offset in range(1, max_wait_days + 1):
-                        second_date = self.req_date + timedelta(days=d_offset)
-                        if self.deadline and second_date > self.deadline:
-                            break
-                        payments = [(self.req_date, best_first), (second_date, rem)]
-                        overlay = self._get_overlay(payments, changes)
-                        if self._is_safe_with_overlay(overlay):
-                            plan_str = (
-                                f"{self.req_date.isoformat()}:{format_amount(best_first)}|"
-                                f"{second_date.isoformat()}:{format_amount(rem)}"
+                        plan_str = (
+                            f"{self.req_date.isoformat()}:{format_amount(best_first)}|"
+                            f"{second_date.isoformat()}:{format_amount(rem)}"
+                        )
+                        candidates.append(
+                            Candidate(
+                                method="partial_payment",
+                                plan_str=plan_str,
+                                spending_changes=change_strs,
+                                is_safe=True,
+                                completes_by_deadline=True,
+                                total_amount=float(self.req_amt),
+                                first_payment=self.req_date,
+                                num_payments=2,
+                                opt_id="",
+                                amt_safe=best_first,
+                                earliest_date=second_date,
                             )
-                            candidates.append(
-                                Candidate(
-                                    method="partial_payment",
-                                    plan_str=plan_str,
-                                    spending_changes=change_strs,
-                                    is_safe=True,
-                                    completes_by_deadline=True,
-                                    total_amount=float(self.req_amt),
-                                    first_payment=self.req_date,
-                                    num_payments=2,
-                                    opt_id="",
-                                    amt_safe=best_first,
-                                    earliest_date=second_date,
-                                )
-                            )
-                            break
+                        )
 
             # Option D: Installments
             if "installments" in considered_methods:
