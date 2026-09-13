@@ -58,6 +58,7 @@ class ForecastState:
 
         for uid in user_ids:
             events = self.events_by_user.get(uid, [])
+            recurring_groups: Dict[Tuple[Any, ...], List[Tuple[date, Decimal, str]]] = defaultdict(list)
             for ev in events:
                 status = (ev.get("status") or "").strip().lower()
                 
@@ -75,22 +76,70 @@ class ForecastState:
                 elif status not in ("settled", "scheduled"):
                     continue
 
-                ev_date_str = ev.get("event_date", "")
+                # current_available_balance is the balance at start_date, so
+                # settled/scheduled history before that date must not be
+                # applied a second time. Cash moves on settlement_date when
+                # one is supplied; event_date is only the fallback.
+                ev_date_str = ev.get("settlement_date") or ev.get("event_date", "")
                 if not ev_date_str:
                     continue
-                
-                # Confirmed salary on settlement date
-                if ev_type == "income" and status == "settled" and ev.get("settlement_date"):
-                    ev_date = self._parse_date(ev.get("settlement_date"))
-                else:
-                    ev_date = self._parse_date(ev_date_str)
-
+                ev_date = self._parse_date(ev_date_str)
                 amt = Decimal(str(ev.get("amount", 0) or 0))
+
+                if status in ("settled", "scheduled") and amt > 0:
+                    group_key = (
+                        ev_type,
+                        (ev.get("category") or "").strip().lower(),
+                        (ev.get("description") or "").strip().lower(),
+                        direction,
+                        (ev.get("flexibility") or "").strip().lower(),
+                    )
+                    recurring_groups[group_key].append((ev_date, amt, ev.get("event_id", "")))
+
+                if ev_date < self.start_date:
+                    continue
+
                 # FX ignoring for this minimal build since fx converter isn't fully tested here, 
                 # but we'll assume it's already converted or in home currency
                 
                 signed = amt if direction == "credit" else -amt
                 self.daily_flows[uid][ev_date] += signed
+
+            self._project_recurring_flows(uid, recurring_groups)
+
+    def _project_recurring_flows(
+        self,
+        user_id: str,
+        groups: Dict[Tuple[Any, ...], List[Tuple[date, Decimal, str]]],
+    ) -> None:
+        """Project only strongly supported recurring series through the horizon."""
+        horizon = self.start_date + timedelta(days=90)
+        for key, observations in groups.items():
+            if len(observations) < 3:
+                continue
+            observations.sort(key=lambda item: item[0])
+            gaps = [
+                (observations[i][0] - observations[i - 1][0]).days
+                for i in range(1, len(observations))
+            ]
+            median_gap = sorted(gaps)[len(gaps) // 2]
+            if median_gap <= 0:
+                continue
+            # A recurring series has a stable cadence; tolerate calendar-month
+            # variation while rejecting unrelated one-off transactions.
+            if any(gap < median_gap * 0.75 or gap > median_gap * 1.25 for gap in gaps):
+                continue
+            amount = sorted(item[1] for item in observations)[len(observations) // 2]
+            last_date = observations[-1][0]
+            observed_dates = {item[0] for item in observations}
+            next_date = last_date + timedelta(days=median_gap)
+            while next_date <= horizon:
+                if next_date >= self.start_date:
+                    if next_date not in observed_dates:
+                        direction = key[3]
+                        signed = amount if direction == "credit" else -amount
+                        self.daily_flows[user_id][next_date] += signed
+                next_date += timedelta(days=median_gap)
 
     def simulate_90_day(self, overlay_flows: Optional[Dict[str, Dict[date, Decimal]]] = None) -> Dict[date, Decimal]:
         daily: Dict[date, Decimal] = {}
