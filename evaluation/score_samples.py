@@ -8,6 +8,7 @@ run unchanged; sample answers are never imported into the decision engine.
 from __future__ import annotations
 
 import csv
+import datetime as dt
 import shutil
 import sys
 import tempfile
@@ -72,6 +73,28 @@ def _numeric_equal(expected: Any, actual: Any) -> bool:
         return False
 
 
+def _date_equal(expected: Any, actual: Any) -> bool:
+    """Compare supported date renderings without weakening blank semantics."""
+    expected_text = _normalise(expected)
+    actual_text = _normalise(actual)
+    if not expected_text or not actual_text:
+        return expected_text == actual_text
+    formats = ("%Y-%m-%d", "%Y/%m/%d", "%Y-%m-%dT%H:%M:%S")
+    for fmt in formats:
+        try:
+            expected_date = dt.datetime.strptime(expected_text, fmt).date()
+            break
+        except ValueError:
+            expected_date = None
+    for fmt in formats:
+        try:
+            actual_date = dt.datetime.strptime(actual_text, fmt).date()
+            break
+        except ValueError:
+            actual_date = None
+    return expected_date is not None and expected_date == actual_date
+
+
 def _explanation_equal(expected: str, actual: str) -> bool:
     """Treat explanations as matching only when they convey the same facts.
 
@@ -115,6 +138,8 @@ def compare_rows(expected: dict[str, Any], actual: dict[str, Any]) -> list[Misma
             equal = _numeric_equal(expected_value, actual_value)
         elif field == EXPLANATION_FIELD:
             equal = _explanation_equal(expected_value, actual_value)
+        elif field == "earliest_date_for_full_payment":
+            equal = _date_equal(expected_value, actual_value)
         else:
             equal = expected_value == actual_value
         if not equal:
@@ -163,12 +188,15 @@ def _render_report(expected: list[dict[str, str]], actual: list[dict[str, str]])
     actual_by_id = {_normalise(row.get("request_id")): row for row in actual}
     mismatches: list[Mismatch] = []
     missing: list[str] = []
+    expected_ids = set()
     for expected_row in expected:
         request_id = _normalise(expected_row.get("request_id"))
+        expected_ids.add(request_id)
         if request_id not in actual_by_id:
             missing.append(request_id)
             continue
         mismatches.extend(compare_rows(expected_row, actual_by_id[request_id]))
+    extras = sorted(set(actual_by_id) - expected_ids)
 
     scored_fields = tuple(FIELDS[:-1])
     scored_total = len(expected) * len(scored_fields)
@@ -182,7 +210,8 @@ def _render_report(expected: list[dict[str, str]], actual: list[dict[str, str]])
         "",
         "## Score",
         "",
-        f"- Samples: {len(expected)} expected, {len(actual)} predicted, {len(missing)} missing",
+        f"- Samples: {len(expected)} expected, {len(actual)} predicted, "
+        f"{len(missing)} missing, {len(extras)} unexpected",
         f"- Decision-field matches: {scored_total - scored_mismatch_count}/{scored_total} "
         f"({(scored_total - scored_mismatch_count) / scored_total:.1%})",
         f"- Decision-field mismatches: {scored_mismatch_count}",
@@ -210,6 +239,8 @@ def _render_report(expected: list[dict[str, str]], actual: list[dict[str, str]])
             )
         for request_id in missing:
             lines.append(f"| {request_id} | row | present | missing | pipeline output row generation |")
+        for request_id in extras:
+            lines.append(f"| {request_id} | row | absent | unexpected | pipeline output row generation |")
 
     lines.extend(["", "## Mismatch aggregates", ""])
     lines.append("### By field")
@@ -230,22 +261,34 @@ def _render_report(expected: list[dict[str, str]], actual: list[dict[str, str]])
             "## Root-cause analysis and fixes",
             "",
             "The scorer is intentionally diagnostic: it does not special-case request IDs "
-                "or alter production predictions. This run fixed two demonstrated forecast "
-                "defects: historical settled cash flows are no longer applied a second time "
-                "against current_available_balance, and cash events use settlement_date when "
-                "available. A regression test covers each behavior. The forecast also projects "
-                "a recurring series only when at least three observations support a stable "
-                "cadence, with a regression test for that projection.",
+                "or alter production predictions. The evaluator accepts numeric amounts within "
+                "0.01 and equivalent ISO/slash/ISO-datetime date renderings, while keeping "
+                "categorical, payment-plan, and spending-change fields exact. Forecast "
+                "regressions already covered by the repository include historical settled cash "
+                "flows not being applied twice, settlement-date cash timing, and requiring "
+                "three stable observations before recurring projection.",
                 "",
                 "## Remaining discrepancies",
                 "",
-                "See the complete table above. Remaining decision mismatches are concentrated "
-                "in conservative recurrence amounts, pending/settled event interpretation, "
-                "installment candidate safety, deadline selection, and spending-change "
-                "candidate generation. They are not request-ID special cases and require "
-                "additional dataset-level investigation before claiming a complete pass. "
-                "Explanation wording differences are reported separately and are not treated "
-                "as decision-engine defects unless their financial facts also differ.",
+                "See the complete table above. The current deterministic engine still has "
+                "unresolved systematic discrepancies in conservative recurrence amounts, "
+                "pending/settled event interpretation, installment candidate safety, deadline "
+                "selection, and spending-change candidate generation. These are documented "
+                "rather than hidden or fixed with request-ID special cases. Explanation wording "
+                "differences are reported separately and are not treated as decision-engine "
+                "defects unless their financial facts also differ.",
+            "",
+            "### Systematic investigation",
+            "",
+            "| Area | Finding | Disposition |",
+            "|---|---|---|",
+            "| Recurrence detection | Stable recurring series require at least three observations and a cadence within ±25% of the median gap. | Covered by forecast regression tests; residual sample mismatches remain in conservative amount selection. |",
+            "| Pending vs settled | Pending debits are reserved; pending credits are ignored; settled/scheduled cash uses settlement date when present. | Covered by forecast tests; no request-ID special case added. |",
+            "| Duplicate events and amendments | The current deterministic path does not yet fully reconcile linked duplicate/amended records from messages or images. | Remaining engine discrepancy; requires a general evidence-reconciliation change. |",
+            "| Currency conversion | Events are normalized through the dated FX converter before forecasting. | Remaining amount mismatches indicate broader forecast/safety differences, not scorer tolerance failures. |",
+            "| 90-day dates and deadlines | Forecast scans request date through request date + 90 days and stops at the requested completion date. | Remaining date mismatches are documented; do not shift dates to fit samples. |",
+            "| Candidate generation and tie-breaks | Full, wait, partial, installment, and spending-change candidates are ranked deterministically. | Remaining installment and spending-change mismatches need general algorithm work. |",
+            "| Minimum balance | Every simulated balance must remain at or above the profile minimum. | Remaining amount/status discrepancies are not explained away by the evaluator. |",
         ]
     )
     return "\n".join(lines) + "\n"

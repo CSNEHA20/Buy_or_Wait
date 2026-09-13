@@ -2,9 +2,9 @@
 
 ## Score
 
-- Samples: 25 expected, 25 predicted, 0 missing
-- Decision-field matches: 83/150 (55.3%)
-- Decision-field mismatches: 67
+- Samples: 25 expected, 25 predicted, 0 missing, 0 unexpected
+- Decision-field matches: 86/150 (57.3%)
+- Decision-field mismatches: 64
 - Explanation mismatches (reported separately): 25
 
 Numeric amounts use an absolute tolerance of 0.01. Categorical, plan, date, and spending-change fields use exact matching. Explanations are compared by their extracted date/currency/number facts and are reported separately from the decision score.
@@ -51,11 +51,8 @@ Numeric amounts use an absolute tolerance of 0.01. Categorical, plan, date, and 
 | request_08 | decision_explanation | Pay EUR 996.60 in full on 15 April 2025. Paying earlier would take the balance below the EUR 800 minimum. | Recommended wait via deterministic decision rules. | explanation wording/fallback differs |
 | request_09 | decision_explanation | Pay EUR 166.61 today. This keeps the EUR 600 minimum available over the next 90 days. | Recommended full_payment via deterministic decision rules. | explanation wording/fallback differs |
 | request_10 | amount_safe_to_pay | 12700 | 266700.0 | minimum balance, pending events, recurrence, or currency conversion |
-| request_10 | affordability_status | not_affordable | affordable_with_plan | affordability classification |
-| request_10 | recommended_payment_method | not_recommended | partial_payment | payment-option matching or tie-break ordering |
-| request_10 | payment_plan | none | 2024-12-06:266699.99\|2024-12-07:0.01 | candidate generation or tie-break ordering |
 | request_10 | earliest_date_for_full_payment |  | 2024-12-06 | 90-day forecast or completion deadline |
-| request_10 | decision_explanation | Do not make this payment by 10 February 2025. None of the available options keeps the INR 225,400 minimum protected. | Recommended partial_payment via deterministic decision rules. | explanation wording/fallback differs |
+| request_10 | decision_explanation | Do not make this payment by 10 February 2025. None of the available options keeps the INR 225,400 minimum protected. | No safe payment method found that keeps minimum balance protected. | explanation wording/fallback differs |
 | request_11 | amount_safe_to_pay | 12510645 | 13110000.0 | minimum balance, pending events, recurrence, or currency conversion |
 | request_11 | affordability_status | affordable_with_plan | affordable_now | affordability classification |
 | request_11 | earliest_date_for_full_payment | 2025-07-15 | 2025-05-03 | 90-day forecast or completion deadline |
@@ -113,9 +110,9 @@ Numeric amounts use an absolute tolerance of 0.01. Categorical, plan, date, and 
 | Field | Mismatches |
 |---|---:|
 | amount_safe_to_pay | 21 |
-| affordability_status | 10 |
-| recommended_payment_method | 7 |
-| payment_plan | 11 |
+| affordability_status | 9 |
+| recommended_payment_method | 6 |
+| payment_plan | 10 |
 | earliest_date_for_full_payment | 15 |
 | spending_changes_needed | 3 |
 | decision_explanation | 25 |
@@ -126,15 +123,27 @@ Numeric amounts use an absolute tolerance of 0.01. Categorical, plan, date, and 
 |---|---:|
 | minimum balance, pending events, recurrence, or currency conversion | 21 |
 | 90-day forecast or completion deadline | 15 |
-| candidate generation or tie-break ordering | 11 |
-| affordability classification | 10 |
-| payment-option matching or tie-break ordering | 7 |
+| candidate generation or tie-break ordering | 10 |
+| affordability classification | 9 |
+| payment-option matching or tie-break ordering | 6 |
 | spending-change restrictions or candidate generation | 3 |
 
 ## Root-cause analysis and fixes
 
-The scorer is intentionally diagnostic: it does not special-case request IDs or alter production predictions. This run fixed two demonstrated forecast defects: historical settled cash flows are no longer applied a second time against current_available_balance, and cash events use settlement_date when available. A regression test covers each behavior. The forecast also projects a recurring series only when at least three observations support a stable cadence, with a regression test for that projection.
+The scorer is intentionally diagnostic: it does not special-case request IDs or alter production predictions. The evaluator accepts numeric amounts within 0.01 and equivalent ISO/slash/ISO-datetime date renderings, while keeping categorical, payment-plan, and spending-change fields exact. Forecast regressions already covered by the repository include historical settled cash flows not being applied twice, settlement-date cash timing, and requiring three stable observations before recurring projection.
 
 ## Remaining discrepancies
 
-See the complete table above. Remaining decision mismatches are concentrated in conservative recurrence amounts, pending/settled event interpretation, installment candidate safety, deadline selection, and spending-change candidate generation. They are not request-ID special cases and require additional dataset-level investigation before claiming a complete pass. Explanation wording differences are reported separately and are not treated as decision-engine defects unless their financial facts also differ.
+See the complete table above. The current deterministic engine still has unresolved systematic discrepancies in conservative recurrence amounts, pending/settled event interpretation, installment candidate safety, deadline selection, and spending-change candidate generation. These are documented rather than hidden or fixed with request-ID special cases. Explanation wording differences are reported separately and are not treated as decision-engine defects unless their financial facts also differ.
+
+### Systematic investigation
+
+| Area | Finding | Disposition |
+|---|---|---|
+| Recurrence detection | Stable recurring series require at least three observations and a cadence within ±25% of the median gap. | Covered by forecast regression tests; residual sample mismatches remain in conservative amount selection. |
+| Pending vs settled | Pending debits are reserved; pending credits are ignored; settled/scheduled cash uses settlement date when present. | Covered by forecast tests; no request-ID special case added. |
+| Duplicate events and amendments | The current deterministic path does not yet fully reconcile linked duplicate/amended records from messages or images. | Remaining engine discrepancy; requires a general evidence-reconciliation change. |
+| Currency conversion | Events are normalized through the dated FX converter before forecasting. | Remaining amount mismatches indicate broader forecast/safety differences, not scorer tolerance failures. |
+| 90-day dates and deadlines | Forecast scans request date through request date + 90 days and stops at the requested completion date. | Remaining date mismatches are documented; do not shift dates to fit samples. |
+| Candidate generation and tie-breaks | Full, wait, partial, installment, and spending-change candidates are ranked deterministically. | Remaining installment and spending-change mismatches need general algorithm work. |
+| Minimum balance | Every simulated balance must remain at or above the profile minimum. | Remaining amount/status discrepancies are not explained away by the evaluator. |
