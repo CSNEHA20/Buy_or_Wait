@@ -42,6 +42,81 @@ def test_salary_restores_safety():
     assert balances[date(2024, 1, 1)] == Decimal("150")
     assert balances[date(2024, 1, 2)] == Decimal("1150")
 
+
+def test_historical_cash_flows_are_not_applied_against_current_balance():
+    profile = build_profile(1000, 100)
+    events = {
+        "u1": [
+            {
+                "status": "settled",
+                "event_type": "expense",
+                "direction": "debit",
+                "amount": 500,
+                "currency": "ZAR",
+                "event_date": "2023-12-20",
+                "settlement_date": "2023-12-20",
+            },
+            {
+                "status": "settled",
+                "event_type": "expense",
+                "direction": "debit",
+                "amount": 100,
+                "currency": "ZAR",
+                "event_date": "2024-01-05",
+                "settlement_date": "2024-01-10",
+            },
+        ]
+    }
+    fs = ForecastState("ZAR", Decimal("100"), {}, date(2024, 1, 1), events, profile)
+    balances = fs.simulate_90_day()
+    assert balances[date(2024, 1, 1)] == Decimal("1000")
+    assert balances[date(2024, 1, 9)] == Decimal("1000")
+    assert balances[date(2024, 1, 10)] == Decimal("900")
+
+
+def test_supported_recurring_series_are_projected():
+    profile = build_profile(5000, 100)
+    events = {
+        "u1": [
+            {
+                "status": "settled",
+                "event_type": "expense",
+                "category": "rent",
+                "direction": "debit",
+                "amount": 1000,
+                "currency": "ZAR",
+                "event_date": "2023-12-01",
+                "settlement_date": "2023-12-01",
+                "flexibility": "fixed",
+            },
+            {
+                "status": "settled",
+                "event_type": "expense",
+                "category": "rent",
+                "direction": "debit",
+                "amount": 1000,
+                "currency": "ZAR",
+                "event_date": "2024-01-01",
+                "settlement_date": "2024-01-01",
+                "flexibility": "fixed",
+            },
+            {
+                "status": "settled",
+                "event_type": "expense",
+                "category": "rent",
+                "direction": "debit",
+                "amount": 1000,
+                "currency": "ZAR",
+                "event_date": "2024-02-01",
+                "settlement_date": "2024-02-01",
+                "flexibility": "fixed",
+            },
+        ]
+    }
+    fs = ForecastState("ZAR", Decimal("100"), {}, date(2024, 2, 15), events, profile)
+    balances = fs.simulate_90_day()
+    assert balances[date(2024, 3, 3)] == Decimal("4000")
+
 def test_amount_safe_to_pay():
     # 14. binary-search amount_safe_to_pay
     profile = build_profile(1000, 100)
