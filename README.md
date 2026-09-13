@@ -4,6 +4,51 @@
 
 This repository implements the **Buy or Wait?** challenge for HackerRank Orchestrate. For every purchase request, it reconstructs the user's financial position, projects cash safety for 90 days, and recommends full payment, partial payment, installments, waiting, or not proceeding.
 
+## Repository relationship
+
+This repository is the participant solution fork/worktree for the official
+[HackerRank Orchestrate — September 2026 starter repository](https://github.com/interviewstreet/hackerrank-orchestrate-september26).
+The official repository supplies the challenge context and dataset contract; this
+repository contains the implemented decision engine, tests, evaluation reports,
+and generated `output.csv`. The official repository's README is not copied into
+this solution because it documents a different repository.
+
+This root `README.md` is the canonical README for this project. There is no
+second package README.
+
+## Codebase tree
+
+```text
+.
+├── AGENTS.md                         # Agent instructions and transcript rules
+├── README.md                         # Canonical project documentation
+├── problem_statement.md              # Challenge specification
+├── requirements.txt                  # Python dependencies
+├── .env.example                      # Optional environment-variable template
+├── code/
+│   ├── main.py                       # Production pipeline entry point
+│   ├── config.py                     # Paths, environment, schema, allowed values
+│   ├── data_loader.py                # Typed CSV loading and reference checks
+│   ├── fx.py                         # Fixed dated currency conversion
+│   ├── state_builder.py              # User-state normalization
+│   ├── evidence_extractor.py         # Optional untrusted evidence extraction
+│   ├── llm_client.py                 # Optional Anthropic client and cache
+│   ├── explanation_generator.py      # Optional grounded explanation wording
+│   ├── forecast.py                   # 90-day balance simulation
+│   ├── decision_engine.py             # Candidate generation and ranking
+│   ├── verifier.py                   # Decision consistency checks
+│   ├── writer.py                     # Schema-locked atomic CSV writer
+│   ├── prompts/                      # Optional extraction/explanation prompts
+│   └── tests/                        # Automated tests
+├── dataset/                          # Supplied challenge inputs
+├── evaluation/
+│   ├── score_samples.py              # 25-row calibration evaluator
+│   ├── sample_score_report.md        # Sample mismatch analysis
+│   └── usage_report.md               # Final run accounting
+├── output.csv                        # 250 production predictions
+└── log.txt                           # Local chat transcript; ignored by Git
+```
+
 ## Problem statement
 
 The agent must decide whether a requested payment is safe without relying on live banking, market data, or exchange-rate APIs. It reads the supplied profiles, financial events, dated exchange rates, payment options, messages, and images, then writes one deterministic prediction row per request to `output.csv`.
