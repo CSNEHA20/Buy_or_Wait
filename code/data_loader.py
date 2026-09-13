@@ -18,6 +18,7 @@ Requirements:
 
 import csv
 import datetime
+import math
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple, Any
@@ -72,6 +73,8 @@ def parse_float(val: Optional[str], field_name: str, allow_blank: bool = True) -
     val_clean = val.strip()
     try:
         res = float(val_clean)
+        if not math.isfinite(res):
+            raise DataLoaderError(f"Invalid numeric value for '{field_name}': '{val}'")
         return res
     except ValueError:
         raise DataLoaderError(f"Invalid numeric value for '{field_name}': '{val}'")
@@ -392,6 +395,8 @@ def load_dataset(dataset_dir: Optional[Path] = None) -> Dataset:
         uid = r["user_id"].strip()
         if not uid:
             raise DataLoaderError("Blank 'user_id' in financial_profiles.csv")
+        if uid in profiles:
+            raise DataLoaderError(f"Duplicate user_id in financial_profiles.csv: '{uid}'")
         curr = validate_currency(r["home_currency"], "home_currency in profiles")
         bal = parse_float(r["current_available_balance"], "current_available_balance in profiles", allow_blank=False)
         min_bal = parse_float(r["minimum_balance_to_keep"], "minimum_balance_to_keep in profiles", allow_blank=False)
@@ -419,6 +424,8 @@ def load_dataset(dataset_dir: Optional[Path] = None) -> Dataset:
         eid = r["event_id"].strip()
         if not eid:
             raise DataLoaderError("Blank 'event_id' in financial_events.csv")
+        if eid in events:
+            raise DataLoaderError(f"Duplicate event_id in financial_events.csv: '{eid}'")
         uid = r["user_id"].strip()
         curr = validate_currency(r["currency"], f"currency for event {eid}")
         amt = parse_float(r["amount"], f"amount for event {eid}", allow_blank=True)
@@ -443,6 +450,10 @@ def load_dataset(dataset_dir: Optional[Path] = None) -> Dataset:
             flexibility=r["flexibility"].strip().lower(),
             minimum_allowed_amount=min_amt,
         )
+        if evt.direction not in {"debit", "credit", "non_cash"}:
+            raise DataLoaderError(f"Invalid direction for event {eid}: '{evt.direction}'")
+        if evt.amount is not None and evt.amount < 0:
+            raise DataLoaderError(f"Negative amount for event {eid}: '{evt.amount}'")
         events[eid] = evt
         events_list.append(evt)
 
@@ -469,6 +480,8 @@ def load_dataset(dataset_dir: Optional[Path] = None) -> Dataset:
         rid = r["request_id"].strip()
         if not rid:
             raise DataLoaderError("Blank 'request_id' in requests.csv")
+        if rid in requests:
+            raise DataLoaderError(f"Duplicate request_id in requests.csv: '{rid}'")
         uid = r["user_id"].strip()
         req_date = parse_date(r["request_date"], f"request_date for request {rid}", allow_blank=False)
         req_amt = parse_float(r["requested_amount"], f"requested_amount for request {rid}", allow_blank=False)
@@ -496,6 +509,8 @@ def load_dataset(dataset_dir: Optional[Path] = None) -> Dataset:
         rid = r["request_id"].strip()
         if not rid:
             raise DataLoaderError("Blank 'request_id' in sample_requests.csv")
+        if rid in sample_requests:
+            raise DataLoaderError(f"Duplicate request_id in sample_requests.csv: '{rid}'")
         uid = r["user_id"].strip()
         req_date = parse_date(r["request_date"], f"request_date for sample_request {rid}", allow_blank=False)
         req_amt = parse_float(r["requested_amount"], f"requested_amount for sample_request {rid}", allow_blank=False)

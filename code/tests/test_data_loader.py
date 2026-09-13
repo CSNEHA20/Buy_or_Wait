@@ -87,6 +87,30 @@ def test_malformed_numeric_value(tmp_path):
     assert "Invalid numeric value" in str(exc_info.value) or "Missing required" in str(exc_info.value)
 
 
+def test_duplicate_event_id_rejected(tmp_path):
+    temp_dataset = tmp_path / "dataset"
+    shutil.copytree(config.DATASET_DIR, temp_dataset)
+    events_csv = temp_dataset / "financial_events.csv"
+    lines = events_csv.read_text(encoding="utf-8").splitlines()
+    lines.append(lines[1])
+    events_csv.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    with pytest.raises(DataLoaderError, match="Duplicate event_id"):
+        load_dataset(temp_dataset)
+
+
+def test_invalid_event_direction_rejected(tmp_path):
+    temp_dataset = tmp_path / "dataset"
+    shutil.copytree(config.DATASET_DIR, temp_dataset)
+    events_csv = temp_dataset / "financial_events.csv"
+    lines = events_csv.read_text(encoding="utf-8").splitlines()
+    parts = lines[1].split(",")
+    parts[5] = "unknown"
+    lines[1] = ",".join(parts)
+    events_csv.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    with pytest.raises(DataLoaderError, match="Invalid direction"):
+        load_dataset(temp_dataset)
+
+
 def test_malformed_date(tmp_path):
     """Test loading a CSV with a malformed date raises DataLoaderError."""
     temp_dataset = tmp_path / "dataset"

@@ -110,7 +110,7 @@ def _build_forecast_state(
         # Normalize amount to home currency on request_date
         if ev.amount is not None and ev.currency != home_currency:
             try:
-                rate_date = request.request_date
+                rate_date = ev.settlement_date or ev.event_date or request.request_date
                 norm_amt = fx.convert(
                     ev.amount, ev.currency, home_currency,
                     rate_date=rate_date, allow_fallback_date=True
@@ -415,7 +415,14 @@ def run_pipeline(dataset_dir: Optional[Path] = None) -> Path:
                 future_events=future_events,
             )
             result = engine.run()
-            verification = verify_decision(result, request=request)
+            verification = verify_decision(
+                result,
+                request=request,
+                profile=profile,
+                forecast_state=fs,
+                payment_options=payment_options,
+                future_events=future_events,
+            )
             if not verification:
                 raise ValueError("; ".join(verification.errors))
         except Exception as e:

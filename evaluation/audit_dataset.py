@@ -1,7 +1,8 @@
 import csv, os, collections, sys
+from pathlib import Path
 
 # Allow path to be passed or use default
-repo = r'C:\Users\SNEHA\Buy_or_Wait_repo\dataset'
+repo = str(Path(__file__).resolve().parents[1] / "dataset")
 
 def load(fname):
     with open(os.path.join(repo, fname), newline='', encoding='utf-8') as f:

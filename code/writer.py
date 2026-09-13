@@ -117,6 +117,11 @@ def write_output(rows: Iterable[Mapping[str, Any]], output_path: Path, expected_
         raise OutputValidationError(
             f"Expected {expected_row_count} prediction rows, got {len(materialized)}"
         )
+    request_ids = [str(row.get("request_id", "")).strip() for row in materialized]
+    if len(set(request_ids)) != len(request_ids):
+        raise OutputValidationError("request_id values must be unique")
+    if any(not request_id for request_id in request_ids):
+        raise OutputValidationError("request_id values must be non-empty")
     for row in materialized:
         validate_row(row)
 
