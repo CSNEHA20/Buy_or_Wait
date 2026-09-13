@@ -1,0 +1,26 @@
+Final submission package manifest
+================================
+
+Separate deliverables:
+  code.zip
+  output.csv
+  log.txt
+
+code.zip contents:
+  code/                  implementation, tests, prompts, and code README
+  evaluation/usage_report.md
+  requirements.txt
+  .env.example
+  README.md
+
+Intentionally excluded:
+  dataset/
+  .env
+  virtual environments
+  node_modules/
+  build artifacts
+  Python bytecode and caches
+  log.txt
+
+The archive is generated from the repository checkout after the final
+pipeline run. The output CSV and log are submitted as separate artifacts.
