@@ -1,4 +1,11 @@
-from evaluation.score_samples import compare_rows
+from evaluation.score_samples import _date_equal, compare_rows
+
+
+def test_sample_date_comparison_accepts_equivalent_renderings():
+    assert _date_equal("2026-01-01", "2026/01/01")
+    assert _date_equal("2026-01-01", "2026-01-01T12:30:00")
+    assert not _date_equal("2026-01-01", "2026-01-02")
+    assert not _date_equal("", "2026-01-01")
 
 
 def test_sample_comparison_uses_numeric_tolerance_and_exact_categories():
