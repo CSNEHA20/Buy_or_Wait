@@ -179,6 +179,8 @@ class DecisionEngine:
         # 1. Compute baseline safe_amount_to_pay and earliest_date_for_full_payment (BEFORE spending changes)
         is_full_safe, safe_amt_dec = self.fs.compute_amount_safe_to_pay(self.req_amt)
         horizon_date = self.req_date + timedelta(days=90)
+        if self.deadline is not None:
+            horizon_date = min(horizon_date, self.deadline)
         earliest_full_date, found_full_date = self.fs.compute_earliest_date_for_full_payment(
             self.req_amt, horizon_date
         )

@@ -9,7 +9,7 @@ request_32,0.0,not_affordable,not_recommended,none,,none,No safe payment method 
 request_33,46085.73,affordable_later,wait,2026-01-15:118000,2026-01-15,none,Recommended wait via deterministic decision rules.
 request_34,129400.0,affordable_now,full_payment,2024-12-04:129400,2024-12-04,none,Recommended full_payment via deterministic decision rules.
 request_35,56611.78,affordable_later,wait,2025-12-16:212000,2025-12-16,none,Recommended wait via deterministic decision rules.
-request_36,663.64,not_affordable,not_recommended,none,2026-09-16,none,No safe payment method found that keeps minimum balance protected.
+request_36,663.64,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_37,6813645.37,affordable_later,wait,2024-03-17:14649000,2024-03-17,none,Recommended wait via deterministic decision rules.
 request_38,222.33,affordable_later,wait,2025-09-15:971.30,2025-09-15,none,Recommended wait via deterministic decision rules.
 request_39,84140.95,affordable_later,wait,2026-04-15:208600,2026-04-15,none,Recommended wait via deterministic decision rules.
@@ -18,7 +18,7 @@ request_41,13768111.07,affordable_later,wait,2025-11-15:38760000,2025-11-15,none
 request_42,52100.0,affordable_now,full_payment,2026-01-05:52100,2026-01-05,none,Recommended full_payment via deterministic decision rules.
 request_43,12306190.49,affordable_later,wait,2024-10-13:43339000,2024-10-13,none,Recommended wait via deterministic decision rules.
 request_44,0.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
-request_45,5167850.69,not_affordable,not_recommended,none,2026-09-16,none,No safe payment method found that keeps minimum balance protected.
+request_45,5167850.69,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_46,44326.19,affordable_with_plan,partial_payment,2024-12-03:44326.19|2024-12-15:5123.81,2024-12-15,none,Recommended partial_payment via deterministic decision rules.
 request_47,38114000.0,affordable_now,full_payment,2025-05-05:38114000,2025-05-05,none,Recommended full_payment via deterministic decision rules.
 request_48,45700.0,affordable_now,full_payment,2026-07-25:45700,2026-07-25,none,Recommended full_payment via deterministic decision rules.
@@ -43,8 +43,8 @@ request_66,22200.0,affordable_now,full_payment,2026-04-03:22200,2026-04-03,none,
 request_67,541.47,affordable_later,wait,2024-09-15:2094,2024-09-15,none,Recommended wait via deterministic decision rules.
 request_68,0.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_69,529.1,affordable_now,full_payment,2026-01-04:529.10,2026-01-04,none,Recommended full_payment via deterministic decision rules.
-request_70,61135.81,not_affordable,not_recommended,none,2025-02-16,none,No safe payment method found that keeps minimum balance protected.
-request_71,2217740.02,not_affordable,not_recommended,none,2025-07-17,none,No safe payment method found that keeps minimum balance protected.
+request_70,61135.81,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
+request_71,2217740.02,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_72,0.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_73,71400.0,affordable_now,full_payment,2023-01-20:71400,2023-01-20,none,Recommended full_payment via deterministic decision rules.
 request_74,5010.0,affordable_now,full_payment,2025-08-04:5010,2025-08-04,none,Recommended full_payment via deterministic decision rules.
@@ -58,7 +58,7 @@ request_81,2076.0,affordable_now,full_payment,2026-07-03:2076,2026-07-03,none,Re
 request_82,541.67,affordable_later,wait,2024-12-16:1405.20,2024-12-16,none,Recommended wait via deterministic decision rules.
 request_83,0.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_84,33624.84,affordable_later,wait,2026-05-16:95400,2026-05-16,none,Recommended wait via deterministic decision rules.
-request_85,1296076.34,not_affordable,not_recommended,none,2024-05-18,none,No safe payment method found that keeps minimum balance protected.
+request_85,1296076.34,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_86,46300.0,affordable_now,full_payment,2025-08-03:46300,2025-08-03,none,Recommended full_payment via deterministic decision rules.
 request_87,0.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_88,11959.79,affordable_with_plan,installments,2024-06-14:9045.23|2024-07-15:9045.23|2024-08-15:9045.23,2024-06-15,none,Recommended installments via deterministic decision rules.
@@ -76,7 +76,7 @@ request_99,18062.0,affordable_now,full_payment,2026-07-04:18062,2026-07-04,none,
 request_100,29616.17,affordable_with_plan,installments,2024-06-13:12866.19|2024-07-14:12866.19|2024-08-14:12866.19,2024-06-15,none,Recommended installments via deterministic decision rules.
 request_101,143500.0,affordable_now,full_payment,2025-11-03:143500,2025-11-03,none,Recommended full_payment via deterministic decision rules.
 request_102,1716.0,affordable_with_plan,installments,2026-04-05:594.88|2026-05-05:594.88|2026-06-04:594.88,2026-04-05,none,Recommended installments via deterministic decision rules.
-request_103,22528.08,not_affordable,not_recommended,none,2024-11-16,none,No safe payment method found that keeps minimum balance protected.
+request_103,22528.08,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_104,17204.0,affordable_now,full_payment,2025-02-04:17204,2025-02-04,none,Recommended full_payment via deterministic decision rules.
 request_105,53500.0,affordable_now,full_payment,2026-06-08:53500,2026-06-08,none,Recommended full_payment via deterministic decision rules.
 request_106,539.84,affordable_later,wait,2025-01-16:2207.70,2025-01-16,none,Recommended wait via deterministic decision rules.
@@ -114,7 +114,7 @@ request_137,37380.24,affordable_later,wait,2025-11-15:80100,2025-11-15,none,Reco
 request_138,864.63,affordable_with_plan,partial_payment,2026-04-07:864.63|2026-04-15:392.31,2026-04-15,none,Recommended partial_payment via deterministic decision rules.
 request_139,1488.81,affordable_with_plan,installments,2024-09-07:802.88|2024-10-08:802.88|2024-11-08:802.88,2024-09-15,none,Recommended installments via deterministic decision rules.
 request_140,0.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
-request_141,33517.85,not_affordable,not_recommended,none,2026-03-18,none,No safe payment method found that keeps minimum balance protected.
+request_141,33517.85,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_142,1263.6,affordable_now,full_payment,2024-12-05:1263.60,2024-12-05,none,Recommended full_payment via deterministic decision rules.
 request_143,4472.25,affordable_later,wait,2025-06-16:12584,2025-06-16,none,Recommended wait via deterministic decision rules.
 request_144,0.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
@@ -154,7 +154,7 @@ request_177,1017.6,affordable_now,full_payment,2026-01-05:1017.60,2026-01-05,non
 request_178,2938.1,affordable_with_plan,installments,2024-12-07:1018.54|2025-01-07:1018.54|2025-02-07:1018.54,2024-12-07,none,Recommended installments via deterministic decision rules.
 request_179,11666703.95,affordable_later,wait,2025-06-16:41648000,2025-06-16,none,Recommended wait via deterministic decision rules.
 request_180,0.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
-request_181,373.25,not_affordable,not_recommended,none,2024-05-18,none,No safe payment method found that keeps minimum balance protected.
+request_181,373.25,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_182,65714.0,affordable_now,full_payment,2025-08-05:65714,2025-08-05,none,Recommended full_payment via deterministic decision rules.
 request_183,25637089.42,affordable_with_plan,installments,2026-04-10:9313546.67|2026-05-10:9313546.67|2026-06-09:9313546.67,2026-04-15,none,Recommended installments via deterministic decision rules.
 request_184,22642.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
@@ -165,7 +165,7 @@ request_188,137.72,not_affordable,not_recommended,none,,none,No safe payment met
 request_189,488.4,affordable_now,full_payment,2026-07-04:488.40,2026-07-04,none,Recommended full_payment via deterministic decision rules.
 request_190,808.11,affordable_later,wait,2024-12-15:2557.50,2024-12-15,none,Recommended wait via deterministic decision rules.
 request_191,664.4,affordable_now,full_payment,2025-05-03:664.40,2025-05-03,none,Recommended full_payment via deterministic decision rules.
-request_192,221.77,not_affordable,not_recommended,none,2026-05-16,none,No safe payment method found that keeps minimum balance protected.
+request_192,221.77,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_193,138.25,affordable_with_plan,installments,2024-03-21:420.23|2024-04-21:420.23|2024-05-22:420.23,2024-03-17,none,Recommended installments via deterministic decision rules.
 request_194,42597.37,affordable_later,wait,2025-09-23:132800,2025-09-23,none,Recommended wait via deterministic decision rules.
 request_195,1101.6,affordable_with_plan,installments,2026-01-09:405.74|2026-02-08:405.74|2026-03-10:405.74,2026-01-15,none,Recommended installments via deterministic decision rules.
@@ -182,18 +182,18 @@ request_205,10621000.0,affordable_now,full_payment,2024-03-06:10621000,2024-03-0
 request_206,1404.7,affordable_with_plan,installments,2025-08-03:486.96|2025-08-31:486.96|2025-09-28:486.96,2025-08-03,none,Recommended installments via deterministic decision rules.
 request_207,6965.65,affordable_later,wait,2026-07-15:11830,2026-07-15,none,Recommended wait via deterministic decision rules.
 request_208,4413000.0,affordable_now,full_payment,2024-06-07:4413000,2024-06-07,none,Recommended full_payment via deterministic decision rules.
-request_209,2414.67,not_affordable,not_recommended,none,2026-01-16,none,No safe payment method found that keeps minimum balance protected.
+request_209,2414.67,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_210,954.88,affordable_with_plan,partial_payment,2026-04-06:954.88|2026-04-15:405.14,2026-04-15,none,Recommended partial_payment via deterministic decision rules.
 request_211,455.41,affordable_later,wait,2024-09-15:1788.60,2024-09-15,none,Recommended wait via deterministic decision rules.
 request_212,0.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_213,3362.4,affordable_with_plan,installments,2026-01-21:1165.63|2026-02-20:1165.63|2026-03-22:1165.63,2026-01-07,none,Recommended installments via deterministic decision rules.
 request_214,69750.0,affordable_with_plan,installments,2024-12-04:36270|2025-01-01:36270,2024-12-04,none,Recommended installments via deterministic decision rules.
 request_215,29986.0,affordable_with_plan,installments,2025-05-09:10395.15|2025-06-06:10395.15|2025-07-04:10395.15,2025-05-06,none,Recommended installments via deterministic decision rules.
-request_216,636.35,not_affordable,not_recommended,none,2026-09-16,none,No safe payment method found that keeps minimum balance protected.
+request_216,636.35,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_217,21896.07,affordable_with_plan,installments,2024-03-19:12889.07|2024-04-19:12889.07|2024-05-20:12889.07,2024-03-15,none,Recommended installments via deterministic decision rules.
 request_218,27499798.58,affordable_with_plan,installments,2025-08-07:21195893.33|2025-09-04:21195893.33|2025-10-02:21195893.33,2025-08-15,none,Recommended installments via deterministic decision rules.
 request_219,0.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
-request_220,215.79,not_affordable,not_recommended,none,2024-08-16,none,No safe payment method found that keeps minimum balance protected.
+request_220,215.79,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_221,109800.0,affordable_now,full_payment,2025-11-03:109800,2025-11-03,none,Recommended full_payment via deterministic decision rules.
 request_222,34078.0,affordable_now,full_payment,2026-01-05:34078,2026-01-05,none,Recommended full_payment via deterministic decision rules.
 request_223,898.7,affordable_now,full_payment,2024-09-07:898.70,2024-09-07,none,Recommended full_payment via deterministic decision rules.
@@ -209,7 +209,7 @@ request_232,0.0,not_affordable,not_recommended,none,,none,No safe payment method
 request_233,0.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_234,278.61,affordable_later,wait,2026-08-16:1213.30,2026-08-16,none,Recommended wait via deterministic decision rules.
 request_235,967.2,affordable_now,full_payment,2024-09-06:967.20,2024-09-06,none,Recommended full_payment via deterministic decision rules.
-request_236,7243023.99,not_affordable,not_recommended,none,2025-04-18,none,No safe payment method found that keeps minimum balance protected.
+request_236,7243023.99,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_237,23826000.0,affordable_now,full_payment,2026-04-05:23826000,2026-04-05,none,Recommended full_payment via deterministic decision rules.
 request_238,663.6,affordable_with_plan,installments,2024-12-07:230.05|2025-01-07:230.05|2025-02-07:230.05,2024-12-07,none,Recommended installments via deterministic decision rules.
 request_239,412.34,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
@@ -236,7 +236,7 @@ request_259,248.47,affordable_later,wait,2024-10-16:935,2024-10-16,none,Recommen
 request_260,9954891.75,affordable_with_plan,partial_payment,2025-02-06:9954891.75|2025-02-15:42124108.25,2025-02-15,none,Recommended partial_payment via deterministic decision rules.
 request_261,1830.4,affordable_now,full_payment,2026-07-03:1830.40,2026-07-03,none,Recommended full_payment via deterministic decision rules.
 request_262,9236000.0,affordable_now,full_payment,2024-12-05:9236000,2024-12-05,none,Recommended full_payment via deterministic decision rules.
-request_263,9414.39,not_affordable,not_recommended,none,2025-07-17,none,No safe payment method found that keeps minimum balance protected.
+request_263,9414.39,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_264,27291.46,affordable_later,wait,2026-05-16:111300,2026-05-16,none,Recommended wait via deterministic decision rules.
 request_265,45970.0,affordable_now,full_payment,2024-03-06:45970,2024-03-06,none,Recommended full_payment via deterministic decision rules.
 request_266,833.76,affordable_with_plan,installments,2025-08-03:324.13|2025-08-31:324.13|2025-09-28:324.13,2025-08-15,none,Recommended installments via deterministic decision rules.
@@ -244,7 +244,7 @@ request_267,1670.45,affordable_with_plan,installments,2026-01-08:667.33|2026-02-
 request_268,1134.52,affordable_with_plan,installments,2024-06-14:841.22|2024-07-15:841.22|2024-08-15:841.22,2024-07-16,none,Recommended installments via deterministic decision rules.
 request_269,0.0,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_270,242.77,not_affordable,not_recommended,none,2026-08-16,none,No safe payment method found that keeps minimum balance protected.
-request_271,21249.6,not_affordable,not_recommended,none,2024-11-16,none,No safe payment method found that keeps minimum balance protected.
+request_271,21249.6,not_affordable,not_recommended,none,,none,No safe payment method found that keeps minimum balance protected.
 request_272,6102616.21,affordable_with_plan,installments,2025-02-12:4709466.67|2025-03-12:4709466.67|2025-04-09:4709466.67,2025-02-15,none,Recommended installments via deterministic decision rules.
 request_273,10764260.96,affordable_with_plan,partial_payment,2026-04-07:10764260.96|2026-04-15:5096739.04,2026-04-15,none,Recommended partial_payment via deterministic decision rules.
 request_274,2581.68,affordable_with_plan,installments,2024-12-04:940.75|2025-01-04:940.75|2025-02-04:940.75,2024-12-16,none,Recommended installments via deterministic decision rules.

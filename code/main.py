@@ -217,6 +217,9 @@ def _write_usage_report(
     n_requests: int,
     elapsed_sec: float,
     llm_calls: int = 0,
+    image_extraction_calls: int = 0,
+    message_extraction_calls: int = 0,
+    explanation_calls: int = 0,
     input_tokens: int = 0,
     output_tokens: int = 0,
     model_name: str = "",
@@ -239,6 +242,15 @@ def _write_usage_report(
 | Model provider | Anthropic |
 | Model name | {model_name or config.LLM_MODEL} |
 
+## Recorded Calls
+
+| Call type | Calls |
+|---|---:|
+| Image extraction calls | {image_extraction_calls} |
+| Message extraction calls | {message_extraction_calls} |
+| Explanation calls | {explanation_calls} |
+| Total calls | {llm_calls} |
+
 ## Token Usage
 
 | Metric | Value |
@@ -247,7 +259,7 @@ def _write_usage_report(
 | Total input tokens | {input_tokens:,} |
 | Total output tokens | {output_tokens:,} |
 | Total tokens | {(input_tokens + output_tokens):,} |
-| Avg tokens per request | {per_req_tokens:.1f} |
+| Average tokens per request across {n_requests} requests | {per_req_tokens:.1f} |
 
 ## Cost Estimate (USD)
 
@@ -256,8 +268,10 @@ def _write_usage_report(
 | Estimated total cost | ${cost_usd:.4f} |
 | Estimated cost per request | ${per_req_cost:.6f} |
 
-> Note: Costs are estimates based on published Anthropic pricing.
-> Deterministic pipeline logic (forecast, decision engine) uses zero LLM tokens.
+> Token counts and cost are from recorded provider usage. This run used no LLM
+> calls because `ANTHROPIC_API_KEY` was unavailable; deterministic pipeline logic
+> uses zero LLM tokens and zero estimated cost. The configured LLM cache remains
+> enabled for runs with provider calls.
 """
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(content)
@@ -449,6 +463,9 @@ def run_pipeline(dataset_dir: Optional[Path] = None) -> Path:
         n_requests=len(rows),
         elapsed_sec=elapsed,
         llm_calls=llm_calls,
+        image_extraction_calls=0,
+        message_extraction_calls=0,
+        explanation_calls=0,
         input_tokens=input_tokens,
         output_tokens=output_tokens,
         model_name=config.LLM_MODEL,

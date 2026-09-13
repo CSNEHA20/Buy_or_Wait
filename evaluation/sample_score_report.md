@@ -20,7 +20,7 @@ Numeric amounts use an absolute tolerance of 0.01. Categorical, plan, date, and 
 | request_03 | affordability_status | affordable_later | not_affordable | affordability classification |
 | request_03 | recommended_payment_method | wait | not_recommended | payment-option matching or tie-break ordering |
 | request_03 | payment_plan | 2019-11-15:5491000 | none | candidate generation or tie-break ordering |
-| request_03 | earliest_date_for_full_payment | 2019-11-15 | 2019-11-16 | 90-day forecast or completion deadline |
+| request_03 | earliest_date_for_full_payment | 2019-11-15 |  | 90-day forecast or completion deadline |
 | request_03 | decision_explanation | Pay IDR 5,491,000 in full on 15 November 2019. Paying earlier would take the balance below the IDR 2,668,700 minimum. | No safe payment method found that keeps minimum balance protected. | explanation wording/fallback differs |
 | request_04 | amount_safe_to_pay | 8401800 | 12693000.0 | minimum balance, pending events, recurrence, or currency conversion |
 | request_04 | affordability_status | affordable_later | affordable_now | affordability classification |

@@ -232,6 +232,46 @@ def test_not_affordable():
     assert result["earliest_date_for_full_payment"] == ""
 
 
+def test_earliest_full_payment_respects_completion_deadline():
+    profile = make_profile(
+        balance=500.0,
+        min_bal=100.0,
+        methods=["full_payment"],
+    )
+    request = make_request(
+        amount=1000.0,
+        allows_partial=False,
+        completion=REQUEST_DATE + datetime.timedelta(days=5),
+    )
+    income_event = {
+        "event_id": "E_late_income",
+        "user_id": "user_test",
+        "event_type": "income",
+        "description": "Salary",
+        "category": "income",
+        "direction": "credit",
+        "amount": 1000.0,
+        "currency": "USD",
+        "event_date": str(REQUEST_DATE + datetime.timedelta(days=10)),
+        "settlement_date": str(REQUEST_DATE + datetime.timedelta(days=10)),
+        "status": "scheduled",
+        "linked_event_id": None,
+        "flexibility": "fixed",
+        "minimum_allowed_amount": None,
+    }
+    fs = make_forecast(profile, events_by_user={"user_test": [income_event]})
+    result = DecisionEngine(
+        request=request,
+        profile=profile,
+        forecast_state=fs,
+        payment_options=[],
+        future_events=[],
+    ).run()
+
+    assert result["recommended_payment_method"] == "not_recommended"
+    assert result["earliest_date_for_full_payment"] == ""
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Test 4: Partial payment today, remainder later
 # ─────────────────────────────────────────────────────────────────────────────
@@ -981,4 +1021,3 @@ def test_financial_fact_matrix_and_determinism():
     assert res4["affordability_status"] == "affordable_with_plan"
     assert res4["recommended_payment_method"] == "full_payment"
     assert res4["spending_changes_needed"] == "stop:E_stop_mat"
-
