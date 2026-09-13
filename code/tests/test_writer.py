@@ -40,3 +40,11 @@ def test_writer_rejects_invalid_domains_and_plan_dates(tmp_path):
     with pytest.raises(OutputValidationError):
         write_output([_row(payment_plan="2026-02-01:10|2026-01-01:1")], tmp_path / "output.csv", expected_row_count=1)
 
+
+def test_writer_rejects_duplicate_request_ids(tmp_path):
+    with pytest.raises(OutputValidationError, match="unique"):
+        write_output(
+            [_row(), _row(request_id="request_test")],
+            tmp_path / "output.csv",
+            expected_row_count=2,
+        )

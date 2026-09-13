@@ -351,16 +351,17 @@ def verify_decision(
     # 4. every spending change must target a flexible, non-protected recurring event
     # -------------------------------------------------------------------------
     if parsed_changes and (future_events is not None or profile is not None):
-        protected_cats = (
-            set(_get_val(profile, "protected_categories") or [])
-            if profile
-            else set()
-        )
-        adjustable_cats = (
-            set(_get_val(profile, "adjustable_categories") or [])
-            if profile
-            else set()
-        )
+        protected_cats = set(
+            _get_val(profile, "protected_categories")
+            or _get_val(profile, "expense_categories_to_protect")
+            or []
+        ) if profile else set()
+        adjustable_cats = set(_get_val(profile, "adjustable_categories") or [])
+        if profile and not adjustable_cats:
+            adjustable_cats = (
+                set(_get_val(profile, "expense_categories_user_is_willing_to_reduce") or [])
+                | set(_get_val(profile, "expense_categories_user_is_willing_to_stop") or [])
+            )
 
         events_by_id = {}
         if future_events:
